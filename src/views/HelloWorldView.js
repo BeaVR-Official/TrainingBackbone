@@ -6,7 +6,7 @@ import Loader from '../utils';
 import * as Backbone from 'backbone';
 import * as _ from '../../node_modules/underscore';
 import $ from 'jquery';
-
+import BeavrApplications from '../collections/applicationsCollection';
 
 class ObjectMenuView extends Backbone.View {
 
@@ -22,12 +22,25 @@ class ObjectMenuView extends Backbone.View {
     constructor() {
         super();
         this.render();
+        var that = this;
+        this.applications = new BeavrApplications();
+        this.applications.fetch({success: function(){
+            that.render();
+        }});
+        _.bind(this.render, this);
+        this.applications.bind('change', this.render);
+        this.applications.bind('change', _.bind(this.render, this));
     }
 
-    initialize() {}
+    initialize() {
+
+    }
 
     render() {
-        this.$el.html(this.template());
+        console.log(this.applications);
+        this.$el.html(this.template({
+                applications : this.applications
+            }));
         return this;
     }
 }

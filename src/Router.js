@@ -15,6 +15,10 @@ class Router extends Backbone.Router {
         });
     }
 
+    static get getApiUrl() {
+        return 'http://beavr.fr:3000/api/'
+    }
+
     HelloWorld() {
         new HelloWorldView();
     }
