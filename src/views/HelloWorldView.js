@@ -11,7 +11,6 @@ import BeavrApplications from '../collections/applicationsCollection';
 class ObjectMenuView extends Backbone.View {
 
     get template() {
-        console.log(Loader.templates.HelloWorld);
         return _.template(Loader.templates.HelloWorld);
     }
 
@@ -21,23 +20,12 @@ class ObjectMenuView extends Backbone.View {
 
     constructor() {
         super();
-        this.render();
-        var that = this;
         this.applications = new BeavrApplications();
-        this.applications.fetch({success: function(){
-            that.render();
-        }});
-        _.bind(this.render, this);
-        this.applications.bind('change', this.render);
-        this.applications.bind('change', _.bind(this.render, this));
-    }
-
-    initialize() {
-
+        this.listenTo(this.applications, 'all', this.render);
+        this.applications.fetch();
     }
 
     render() {
-        console.log(this.applications);
         this.$el.html(this.template({
                 applications : this.applications
             }));
