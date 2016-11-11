@@ -9,7 +9,7 @@ import $ from 'jquery';
 
 class Application {
     constructor() {
-        Loader.loadTemplates([ 'HelloWorld' ],
+        Loader.loadTemplates([ 'AppList' ],
             function() {
                 new Router();
                 Backbone.history.start();

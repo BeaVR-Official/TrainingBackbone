@@ -1,0 +1,13 @@
+<div style="text-align:center;">
+    <h2 style="border:1px solid grey;">Harambe is ALIVE</h2>
+
+    <% if (applications != undefined) { %>
+        <ul style="text-align:left">
+        <% _.each(applications.models, function(application){ %>
+            <li><b><%- application.attributes.name %></b><%- ", " + application.attributes.price + " euros" %></li>
+        <% }); %>
+        </ul>
+    <% } else { %>
+        <p>Aucune application.</p>
+    <% } %>
+</div>
