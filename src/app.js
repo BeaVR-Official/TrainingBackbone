@@ -7,7 +7,7 @@ import Loader from './utils';
 import * as Backbone from 'backbone';
 import $ from 'jquery';
 
-require('../sass/main')
+require('../sass/main.sass')
 
 class Application {
     constructor() {
