@@ -8265,7 +8265,7 @@
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _AppListView = __webpack_require__(391);
+	var _AppListView = __webpack_require__(386);
 
 	var _AppListView2 = _interopRequireDefault(_AppListView);
 
@@ -9832,7 +9832,103 @@
 	$export($export.S, 'Object', {create: __webpack_require__(343)});
 
 /***/ },
-/* 386 */,
+/* 386 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(301);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(299);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(331);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _createClass2 = __webpack_require__(327);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _inherits2 = __webpack_require__(378);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _utils = __webpack_require__(387);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _backbone = __webpack_require__(389);
+
+	var Backbone = _interopRequireWildcard(_backbone);
+
+	var _underscore = __webpack_require__(390);
+
+	var _ = _interopRequireWildcard(_underscore);
+
+	var _jquery = __webpack_require__(388);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _applicationCollection = __webpack_require__(391);
+
+	var _applicationCollection2 = _interopRequireDefault(_applicationCollection);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ObjectMenuView = function (_Backbone$View) {
+	    (0, _inherits3.default)(ObjectMenuView, _Backbone$View);
+	    (0, _createClass3.default)(ObjectMenuView, [{
+	        key: 'template',
+	        get: function get() {
+	            return _.template(_utils2.default.templates.AppList);
+	        }
+	    }, {
+	        key: '$el',
+	        get: function get() {
+	            return (0, _jquery2.default)('.AppListSelector');
+	        }
+	    }]);
+
+	    function ObjectMenuView() {
+	        (0, _classCallCheck3.default)(this, ObjectMenuView);
+
+	        var _this = (0, _possibleConstructorReturn3.default)(this, (ObjectMenuView.__proto__ || (0, _getPrototypeOf2.default)(ObjectMenuView)).call(this));
+
+	        _this.render();
+	        _this.applicationCollection = new _applicationCollection2.default();
+	        _this.listenTo(_this.applicationCollection, 'all', _this.render);
+	        _this.applicationCollection.fetch();
+	        return _this;
+	    }
+
+	    (0, _createClass3.default)(ObjectMenuView, [{
+	        key: 'initialize',
+	        value: function initialize() {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            this.$el.html(this.template({ applications: this.applicationCollection }));
+	            return this;
+	        }
+	    }]);
+	    return ObjectMenuView;
+	}(Backbone.View); /**
+	                   * Created by ekersale on 08/11/2016.
+	                   */
+
+	exports.default = ObjectMenuView;
+
+/***/ },
 /* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -23605,7 +23701,7 @@
 /* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -23631,74 +23727,58 @@
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _utils = __webpack_require__(387);
+	var _router = __webpack_require__(392);
 
-	var _utils2 = _interopRequireDefault(_utils);
+	var _router2 = _interopRequireDefault(_router);
 
 	var _backbone = __webpack_require__(389);
 
 	var Backbone = _interopRequireWildcard(_backbone);
 
-	var _underscore = __webpack_require__(390);
+	var _applicationModel = __webpack_require__(393);
 
-	var _ = _interopRequireWildcard(_underscore);
-
-	var _jquery = __webpack_require__(388);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _applicationCollection = __webpack_require__(394);
-
-	var _applicationCollection2 = _interopRequireDefault(_applicationCollection);
+	var _applicationModel2 = _interopRequireDefault(_applicationModel);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ObjectMenuView = function (_Backbone$View) {
-	    (0, _inherits3.default)(ObjectMenuView, _Backbone$View);
-	    (0, _createClass3.default)(ObjectMenuView, [{
-	        key: 'template',
-	        get: function get() {
-	            return _.template(_utils2.default.templates.AppList);
+	var Applications = function (_Backbone$Collection) {
+	    (0, _inherits3.default)(Applications, _Backbone$Collection);
+	    (0, _createClass3.default)(Applications, [{
+	        key: "url",
+	        value: function url() {
+	            return _router2.default.urlBase + "/applications/";
 	        }
 	    }, {
-	        key: '$el',
+	        key: "model",
 	        get: function get() {
-	            return (0, _jquery2.default)('.AppListSelector');
+	            return _applicationModel2.default;
 	        }
 	    }]);
 
-	    function ObjectMenuView() {
-	        (0, _classCallCheck3.default)(this, ObjectMenuView);
-
-	        var _this = (0, _possibleConstructorReturn3.default)(this, (ObjectMenuView.__proto__ || (0, _getPrototypeOf2.default)(ObjectMenuView)).call(this));
-
-	        _this.render();
-	        _this.applicationCollection = new _applicationCollection2.default();
-	        _this.applicationCollection.fetch();
-	        _.bind(_this.render, _this);
-	        _this.applicationCollection.bind('change', _this.render);
-	        _this.applicationCollection.bind('change', _.bind(_this.render, _this));
-	        return _this;
+	    function Applications(params) {
+	        (0, _classCallCheck3.default)(this, Applications);
+	        return (0, _possibleConstructorReturn3.default)(this, (Applications.__proto__ || (0, _getPrototypeOf2.default)(Applications)).call(this, params));
 	    }
 
-	    (0, _createClass3.default)(ObjectMenuView, [{
-	        key: 'initialize',
-	        value: function initialize() {}
+	    (0, _createClass3.default)(Applications, [{
+	        key: "defaults",
+	        value: function defaults() {
+	            return {
+	                models: []
+	            };
+	        }
 	    }, {
-	        key: 'render',
-	        value: function render() {
-	            this.$el.html(this.template({ applications: this.applicationCollection }));
-	            return this;
+	        key: "parse",
+	        value: function parse(response) {
+	            return response.data.application;
 	        }
 	    }]);
-	    return ObjectMenuView;
-	}(Backbone.View); /**
-	                   * Created by ekersale on 08/11/2016.
-	                   */
+	    return Applications;
+	}(Backbone.Collection);
 
-	exports.default = ObjectMenuView;
+	exports.default = Applications;
 
 /***/ },
 /* 392 */
@@ -23730,7 +23810,87 @@
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _router = __webpack_require__(393);
+	var _AppListView = __webpack_require__(386);
+
+	var _AppListView2 = _interopRequireDefault(_AppListView);
+
+	var _backbone = __webpack_require__(389);
+
+	var Backbone = _interopRequireWildcard(_backbone);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by ekersale on 08/11/2016.
+	 */
+
+	var Router = function (_Backbone$Router) {
+	    (0, _inherits3.default)(Router, _Backbone$Router);
+
+	    function Router() {
+	        (0, _classCallCheck3.default)(this, Router);
+	        return (0, _possibleConstructorReturn3.default)(this, (Router.__proto__ || (0, _getPrototypeOf2.default)(Router)).call(this, {
+	            routes: {
+	                '': 'AppList'
+	            }
+	        }));
+	    }
+
+	    // Base URL of the BeaVR API
+
+
+	    (0, _createClass3.default)(Router, [{
+	        key: 'AppList',
+
+
+	        // List of the applications
+	        value: function AppList() {
+	            new _AppListView2.default();
+	        }
+	    }], [{
+	        key: 'urlBase',
+	        get: function get() {
+	            return 'http://beavr.fr:3000/api';
+	        }
+	    }]);
+	    return Router;
+	}(Backbone.Router);
+
+	exports.default = Router;
+
+/***/ },
+/* 393 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(301);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(299);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(327);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(331);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(378);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _router = __webpack_require__(392);
 
 	var _router2 = _interopRequireDefault(_router);
 
@@ -23787,169 +23947,6 @@
 	}(Backbone.Model);
 
 	exports.default = Application;
-
-/***/ },
-/* 393 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _getPrototypeOf = __webpack_require__(301);
-
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-	var _classCallCheck2 = __webpack_require__(299);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _createClass2 = __webpack_require__(327);
-
-	var _createClass3 = _interopRequireDefault(_createClass2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(331);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(378);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _AppListView = __webpack_require__(391);
-
-	var _AppListView2 = _interopRequireDefault(_AppListView);
-
-	var _backbone = __webpack_require__(389);
-
-	var Backbone = _interopRequireWildcard(_backbone);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Created by ekersale on 08/11/2016.
-	 */
-
-	var Router = function (_Backbone$Router) {
-	    (0, _inherits3.default)(Router, _Backbone$Router);
-
-	    function Router() {
-	        (0, _classCallCheck3.default)(this, Router);
-	        return (0, _possibleConstructorReturn3.default)(this, (Router.__proto__ || (0, _getPrototypeOf2.default)(Router)).call(this, {
-	            routes: {
-	                '': 'AppList'
-	            }
-	        }));
-	    }
-
-	    // Base URL of the BeaVR API
-
-
-	    (0, _createClass3.default)(Router, [{
-	        key: 'AppList',
-
-
-	        // List of the applications
-	        value: function AppList() {
-	            new _AppListView2.default();
-	        }
-	    }], [{
-	        key: 'urlBase',
-	        get: function get() {
-	            return 'http://beavr.fr:3000/api';
-	        }
-	    }]);
-	    return Router;
-	}(Backbone.Router);
-
-	exports.default = Router;
-
-/***/ },
-/* 394 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _getPrototypeOf = __webpack_require__(301);
-
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-	var _classCallCheck2 = __webpack_require__(299);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(331);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _createClass2 = __webpack_require__(327);
-
-	var _createClass3 = _interopRequireDefault(_createClass2);
-
-	var _inherits2 = __webpack_require__(378);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _router = __webpack_require__(393);
-
-	var _router2 = _interopRequireDefault(_router);
-
-	var _backbone = __webpack_require__(389);
-
-	var Backbone = _interopRequireWildcard(_backbone);
-
-	var _applicationModel = __webpack_require__(392);
-
-	var _applicationModel2 = _interopRequireDefault(_applicationModel);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Applications = function (_Backbone$Collection) {
-	    (0, _inherits3.default)(Applications, _Backbone$Collection);
-	    (0, _createClass3.default)(Applications, [{
-	        key: "url",
-	        value: function url() {
-	            return _router2.default.urlBase + "/applications/";
-	        }
-	    }, {
-	        key: "model",
-	        get: function get() {
-	            return _applicationModel2.default;
-	        }
-	    }]);
-
-	    function Applications(params) {
-	        (0, _classCallCheck3.default)(this, Applications);
-	        return (0, _possibleConstructorReturn3.default)(this, (Applications.__proto__ || (0, _getPrototypeOf2.default)(Applications)).call(this, params));
-	    }
-
-	    (0, _createClass3.default)(Applications, [{
-	        key: "defaults",
-	        value: function defaults() {
-	            return {
-	                models: []
-	            };
-	        }
-	    }, {
-	        key: "parse",
-	        value: function parse(response) {
-	            return response.data.application;
-	        }
-	    }]);
-	    return Applications;
-	}(Backbone.Collection);
-
-	exports.default = Applications;
 
 /***/ }
 /******/ ]);

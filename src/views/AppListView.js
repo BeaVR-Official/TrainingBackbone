@@ -22,8 +22,8 @@ class ObjectMenuView extends Backbone.View {
     constructor() {
         super();
         this.render();
-        this.listenTo(this.applicationCollection, 'all', this.render);
         this.applicationCollection = new Applications();
+        this.listenTo(this.applicationCollection, 'all', this.render);
         this.applicationCollection.fetch();
     }
 
