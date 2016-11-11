@@ -12,7 +12,7 @@ require('../sass/main.scss');
 
 class Application {
     constructor() {
-        Loader.loadTemplates([ 'HelloWorld' ],
+        Loader.loadTemplates([ 'SettingsBox' ],
             function() {
                 new Router();
                 Backbone.history.start();

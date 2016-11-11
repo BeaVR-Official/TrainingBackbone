@@ -2,7 +2,7 @@
  * Created by ekersale on 08/11/2016.
  */
 
-import HelloWorldView from './views/HelloWorldView';
+import HelloWorldView from './views/SettingsBox';
 import * as Backbone from 'backbone';
 
 class Router extends Backbone.Router {

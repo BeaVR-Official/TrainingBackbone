@@ -4,28 +4,26 @@
 
 import Loader from '../utils';
 import * as Backbone from 'backbone';
-import * as _ from '../../node_modules/underscore';
+import * as _ from 'underscore';
 import $ from 'jquery';
 
-require('../../sass/HelloWorld.scss');
+require('../../sass/SettingsBox.scss');
 
 class ObjectMenuView extends Backbone.View {
 
     get template() {
-        console.log(Loader.templates.HelloWorld);
-        return _.template(Loader.templates.HelloWorld);
+        console.log(Loader.templates.SettingsBox);
+        return _.template(Loader.templates.SettingsBox);
     }
 
     get $el() {
-        return $('.HelloWorldSelector');
+        return $('.SettingsBoxSelector');
     }
 
     constructor() {
         super();
         this.render();
     }
-
-    initialize() {}
 
     render() {
         this.$el.html(this.template());
