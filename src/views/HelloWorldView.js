@@ -7,6 +7,7 @@ import * as Backbone from 'backbone';
 import * as _ from '../../node_modules/underscore';
 import $ from 'jquery';
 
+require('../../sass/HelloWorld.scss');
 
 class ObjectMenuView extends Backbone.View {
 
