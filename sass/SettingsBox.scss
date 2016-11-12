@@ -57,6 +57,14 @@
     }
   }
 
+  .ui.input input {
+    &:focus {
+      outline:none;
+      border:none;
+      border-bottom: 2px solid #00dc00;
+    }
+  }
+
   .header {
     color:white;
     padding-left: 20px;

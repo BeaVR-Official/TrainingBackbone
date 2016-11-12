@@ -24,7 +24,8 @@ class ObjectMenuView extends Backbone.View {
         return {
             'click .openSettings': 'OpenCloseBox',
             'keyup input': 'changed',
-            'change input': 'changed'
+            'change input': 'changed',
+            'mousewheel input': 'inputWheel'
         };
     }
 
@@ -43,6 +44,17 @@ class ObjectMenuView extends Backbone.View {
         console.log(this.model);
     }
 
+    inputWheel(event, delta) {
+        var string = event.target.attributes['data-name'].value;
+        var elem = string.split('.');
+        if (delta > 0) {
+            this.model.attributes[elem[0]][elem[1]][elem[2]] = parseInt($(event.target).val()) + 1;
+            console.log(this.model.attributes[elem[0]][elem[1]][elem[2]]);
+        } else {
+            this.model.attributes[elem[0]][elem[1]][elem[2]] = parseInt($(event.target).val()) - 1;
+        }
+    }
+
     render() {
         var that = this;
         this.$el.html(this.template({transformations: that.model.get('transformations')}));
@@ -58,7 +70,6 @@ class ObjectMenuView extends Backbone.View {
         $( ".Box" ).fadeOut( 800, function() {
             $( ".Box" ).css('visibility', 'hidden');
             $(".openSettings i").removeClass("fa-spin");
-
         });
     }
 
