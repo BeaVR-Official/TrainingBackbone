@@ -1,0 +1,16 @@
+.NextPrevBox {
+  width: 300px;
+  height: 30px;
+  text-align: right;
+
+  button.button {
+    width: 100px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+
+    i {
+      font-size: 20px;
+    }
+
+  }
+}

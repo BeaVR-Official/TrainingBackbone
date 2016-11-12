@@ -2,7 +2,8 @@
  * Created by ekersale on 08/11/2016.
  */
 
-import HelloWorldView from './views/SettingsBox';
+import SettingsBox from './views/SettingsBox';
+import NextPrevBox from './views/NextPrevBox';
 import * as Backbone from 'backbone';
 
 class Router extends Backbone.Router {
@@ -10,13 +11,14 @@ class Router extends Backbone.Router {
     constructor() {
         super({
             routes: {
-                '': 'HelloWorld'
+                '': 'home'
             }
         });
     }
 
-    HelloWorld() {
-        new HelloWorldView();
+    home() {
+        new SettingsBox();
+        new NextPrevBox();
     }
 
 }

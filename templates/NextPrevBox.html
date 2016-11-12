@@ -1,0 +1,13 @@
+<div class="NextPrevBox">
+    <button class=" animated ui primary basic icon button " style="padding-right: 11px !important;" id="prev"><i class="fa fa-angle-left"></i></button>
+    <button class=" animated ui primary basic icon button " style="padding-right: 11px !important;" id="next" ><i class="fa fa-angle-right"></i></button>
+</div>
+
+<script>
+    $("button").click(function(event) {
+        $(event.target).addClass('pulse');
+        setTimeout(function() {
+            $(event.target).removeClass('pulse');
+        }, 1000)
+    });
+</script>

@@ -10,7 +10,7 @@ import Object3D from '../models/object';
 
 require('../../sass/SettingsBox.scss');
 
-class ObjectMenuView extends Backbone.View {
+class SettingsBoxView extends Backbone.View {
 
     get template() {
         return _.template(Loader.templates.SettingsBox);
@@ -90,4 +90,4 @@ class ObjectMenuView extends Backbone.View {
     }
 }
 
-export default ObjectMenuView;
+export default SettingsBoxView;
