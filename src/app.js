@@ -7,6 +7,9 @@ import Loader from './utils';
 import * as Backbone from 'backbone';
 import $ from 'jquery';
 
+require('../sass/fonts.scss');
+require('../sass/main.scss');
+
 class Application {
     constructor() {
         Loader.loadTemplates([ 'HelloWorld' ],

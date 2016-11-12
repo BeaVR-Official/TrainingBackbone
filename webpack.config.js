@@ -8,12 +8,13 @@ var path = require('path');
 module.exports = {
     entry: [
         'babel-polyfill',
-        './src/app'
+        './src/app',
     ],
     output: {
-        path: path.resolve(__dirname, "out"),
-        filename: "TrainingBackbone.js"
-    },
+     path: path.resolve(__dirname, "out"),
+     filename: "[name].bundle.js"
+     },
+    devtool: "source-map",
     module: {
         loaders: [
             {
@@ -35,7 +36,12 @@ module.exports = {
                     plugins: ['transform-runtime'],
                     presets: ['es2015'],
                 }
+            },
+            {
+                test: /\.scss$/,
+                include: [path.resolve(__dirname, "./sass")],
+                loaders: ["style", "css", "sass"]
             }
         ]
     }
-}
+};
