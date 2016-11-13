@@ -26,8 +26,7 @@ class ObjectMenuView extends Backbone.View {
     }
 
     openAuthModal() {
-        var authModal = new AuthModal();
-        authModal.openModal();
+        new AuthModal();
     }
 
     constructor() {

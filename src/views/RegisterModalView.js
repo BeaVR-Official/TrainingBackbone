@@ -16,11 +16,6 @@ class RegisterModalView extends Backbone.View {
         return $('.ModalSelector');
     }
 
-    openModal() {
-        $('.register')
-            .modal('show');
-    }
-
     constructor() {
         super({
             events: {}
