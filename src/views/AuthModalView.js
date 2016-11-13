@@ -15,7 +15,9 @@ class AuthModalView extends Backbone.View {
 
     get events() {
         return {
+/*
             'click .register_button' : 'openRegisterModal'
+*/
         };
     }
 
@@ -23,14 +25,18 @@ class AuthModalView extends Backbone.View {
         return $('.ModalSelector');
     }
 
-    openRegisterModal() {
+    openRegisterModal(event) {
+        event.preventDefault();
         var registerModal = new RegisterModal();
         registerModal.openModal();
     }
 
     openModal() {
-        $('.login')
-            .modal('show');
+/*
+        $('.login').addClass('')
+*/
+        /*$('.login')
+            .modal('show');*/
     }
 
     constructor() {
