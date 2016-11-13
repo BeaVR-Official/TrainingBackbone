@@ -5,6 +5,7 @@
 import Loader from '../utils';
 import * as Backbone from 'backbone';
 import * as _ from '../../node_modules/underscore';
+import AuthModal from './AuthModalView';
 
 require('../../sass/HelloWorld.scss');
 
@@ -16,8 +17,7 @@ class ObjectMenuView extends Backbone.View {
 
     get events() {
         return {
-            'click .openAuthModal' : 'openAuthModal',
-            'click .login_button' : 'openAuthModal'
+            'click .openAuthModal' : 'openAuthModal'
         };
     }
 
@@ -26,15 +26,8 @@ class ObjectMenuView extends Backbone.View {
     }
 
     openAuthModal() {
-        $('.coupled.modal').modal({
-                allowMultiple: true
-            });
-        $('.register.modal')
-            .modal('attach events', '.login.modal #register_button');
-        $('.password.modal')
-            .modal('attach events', '.login.modal #password_button')
-        $('.login.modal')
-            .modal('show');
+        var authModal = new AuthModal();
+        authModal.openModal();
     }
 
     constructor() {
