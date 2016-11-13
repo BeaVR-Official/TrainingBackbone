@@ -4,6 +4,8 @@
 
 import SettingsBox from './views/SettingsBox';
 import NextPrevBox from './views/NextPrevBox';
+import ToolsBox from './views/ToolsBox';
+
 import * as Backbone from 'backbone';
 
 class Router extends Backbone.Router {
@@ -19,6 +21,7 @@ class Router extends Backbone.Router {
     home() {
         new SettingsBox();
         new NextPrevBox();
+        new ToolsBox();
     }
 
 }

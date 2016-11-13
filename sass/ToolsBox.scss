@@ -1,0 +1,18 @@
+.ToolsBox {
+  margin:auto;
+  width: 300px;
+  height: 100%;
+  background: rgb(47, 197, 218);;
+
+  -moz-border-radius: 0px 0px 7px 7px;
+  -webkit-border-radius: 0px 0px 7px 7px;
+  border-radius: 0px 0px 7px 7px;
+
+  -moz-box-shadow: 0px 0px 6px #000000;
+  -webkit-box-shadow: 0px 0px 6px #000000;
+  box-shadow: 0px 0px 6px #000000;
+
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 100);
+  filter: alpha(opacity = 100);
+}
