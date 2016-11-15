@@ -1,13 +1,17 @@
 <div class="SettingsBox">
     <div class="Box animated ">
-        <div class="ui top attached tabular menu">
-            <a class="item active" data-tab="Transformations"><div class="center-text">Transformations</div></a>
-            <a class="item" data-tab="Material"><div class="center-text">Material</div></a>
-            <a class="item" data-tab="Scripts"><div class="center-text">Scripts</div></a>
+        <div class="HeaderBar">
+            <button class="ui button basic icon prevTab"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+            <span>
+                <a class="active animated" data-tab="Transformations">Transformations</a>
+                <a class="animated" data-tab="Material">Material</a>
+                <a class="animated" data-tab="Scripts">Scripts</a>
+            </span>
+            <button class="ui button basic icon nextTab"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
         </div>
         <div class="ui bottom attached tab segment center active " data-tab="Transformations">
-            <div class="ui grid">
-                <div class="row">
+            <div class="ui grid transformations">
+                <div class="row" style="padding-top: 5px !important;">
                     <div class="header">Translations</div>
                 </div>
                 <div class="three column row">
@@ -98,18 +102,147 @@
                 </div>
             </div>
         </div>
-        <div class="ui bottom attached tab segment" data-tab="Material">
-            Material
+        <div class="ui bottom attached tab segment center" data-tab="Material">
+            <div class="ui grid">
+                <div class="row" style="padding-top: 5px !important;" >
+                    <div class="header">Mesh</div>
+                </div>
+
+                <div class="row two column boxes">
+                    <div class="column" style="width:30% !important; padding-left: 10%; border-right: 1px solid grey; margin:auto; margin-left: 0; margin-right: 0;">
+                        <span style=" color: white;">Mesh & Materiel</span>
+                    </div>
+                    <div class="column" style="width:70%; text-align:center; margin: auto; ">
+                        <div class="imageBox" style="margin-right: 17px;">
+                            <img src="http://beavr-creator-build.herokuapp.com/app/assets/images/cube.png">
+                        </div>
+                        <div class="imageBox" style="border-radius: 50%;padding: 0;padding-top: 16px;">
+                            <img src="https://cdn3.iconfinder.com/data/icons/UltimateGnome/256x256/stock/stock_3d-texture.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row two column">
+                    <div class="column" style="width:30% !important; padding-left: 10%; border-right: 1px solid grey;">
+                        <span style=" color: white;">Afficher</span>
+                    </div>
+                    <div class="column" style="width:70% !important; text-align: center;">
+                        <div class="ui fitted toggle checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row two column">
+                    <div class="column" style="width:30% !important; padding-left: 10%; border-right: 1px solid grey;">
+                        <span style=" color: white;">Nom</span>
+                    </div>
+                    <div class="column" style="width:70% !important; padding-left: 10%; padding-right:10%; text-align: center;">
+                        <input class="ui input name">
+                    </div>
+                </div>
+
+
+                <div class="row two column">
+                    <div class="column" style="width:30% !important; padding-left: 10%; border-right: 1px solid grey;">
+                        <span style=" color: white;">Couleur</span>
+                    </div>
+                    <div class="column" style="width:70% !important; padding-left: 10%; padding-right:10%;">
+                        <input type="text" id="color" class="ui button showPopup" style="width: 100%; text-align: center;" name="color" value="#123456" />
+                        <div class="ui flowing popup top left transition hidden" style="background: rgb(46, 46, 46);">
+                            <div class="ui row center aligned" style="text-align:center;">
+                                <span style="margin: 0px 10px 0px 10px; color: white;">Choisissez une couleur</span>
+                                <div id="colorpicker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="ui bottom attached tab segment" data-tab="Scripts">
             Scripts
-        </div>    </div>
+        </div>
+    </div>
+
     <button class="circular ui icon button black openSettings">
         <i class="fa fa-cog"></i>
     </button>
 </div>
-
+<script type="text/javascript" src="./colorpicker/js/colorpicker.js"></script>
+<script type="text/javascript" src="./farbtastic/farbtastic.js"></script>
 <script>
     $('.menu .item').tab();
+
+    $(document).ready(function() {
+        $('#colorpicker').farbtastic('#color');
+    });
+
+    $('.showPopup')
+            .popup({
+                popup: '.flowing.popup',
+                position: 'top center',
+                hoverable  : true
+            })
+    ;
+
+    $.fn.extend({
+        animateCss: function (animationName, remove) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+                if (remove)
+                    $(this).removeClass(remove);
+            });
+        }
+    });
+
+    $('.prevTab').click(function() {
+        $(this).attr('disabled', true);
+        var selector =  $('span a.active');
+        var newActive;
+        setTimeout(function(){
+            $('.prevTab').removeAttr('disabled');
+        }, 1000);
+        selector.animateCss('fadeOutRight', 'active');
+        if (selector.index() == 0) {
+            newActive = $('span a').last();
+            newActive.addClass('active');
+        }
+        else {
+            newActive = selector.prev();
+            newActive.addClass('active');
+        }
+        newActive.animateCss('fadeInLeft');
+        $('.tab.segment.active').removeClass('active');
+        var item = $(".tab.segment[data-tab='" + $(newActive).data( "tab" ) +"']");
+        item.addClass('active');
+        item.animateCss('fadeIn');
+    });
+
+    $('.nextTab').click(function() {
+        $(this).attr('disabled', true);
+        setTimeout(function(){
+            $('.nextTab').removeAttr('disabled');
+        }, 1000);
+        var selector =  $('span a.active');
+        selector.animateCss('fadeOutLeft', 'active');
+        var newActive;
+        if (selector.index() == 2) {
+            newActive = $('span a').first();
+            newActive.addClass('active');
+        }
+        else {
+            newActive = selector.next();
+            newActive.addClass('active');
+        }
+        newActive.animateCss('fadeInRight');
+        $('.tab.segment.active').removeClass('active');
+        var item = $(".tab.segment[data-tab='" + $(newActive).data( "tab" ) +"']");
+        item.addClass('active');
+        item.animateCss('fadeIn');
+    });
+
 
 </script>

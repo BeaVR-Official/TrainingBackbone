@@ -35,6 +35,7 @@ class SettingsBoxView extends Backbone.View {
         this.listenTo(this.model, 'all', this.render);
         _.bindAll(this, 'changed');
         this.render();
+
     }
 
     changed(event) {
