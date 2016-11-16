@@ -23,9 +23,22 @@ class SettingsBoxView extends Backbone.View {
     get events() {
         return {
             'click .openSettings': 'OpenCloseBox',
-            'keyup input': 'changed',
-            'change input': 'changed',
-            'mousewheel input': 'inputWheel'
+            'keyup transformations input': 'changed',
+            'change transformations input': 'changed',
+            'mousewheel transformations input': 'inputWheel',
+            'change #sliderOpacity': 'propertyChanged',
+            'mousemove #sliderOpacity': 'propertyChanged',
+            ///Events drag
+            'dragstart .dropMaterial img': 'dragEvent',
+            'dragstart .dropTexture img': 'dragEvent',
+            'drop .dropMaterial' : 'dropMaterial',
+            'dragover .dropMaterial': function(ev) {
+                ev.preventDefault();
+            },
+            'drop .dropTexture' : 'dropTexture',
+            'dragover .dropTexture': function(ev) {
+                ev.preventDefault();
+            },
         };
     }
 
@@ -35,7 +48,51 @@ class SettingsBoxView extends Backbone.View {
         this.listenTo(this.model, 'all', this.render);
         _.bindAll(this, 'changed');
         this.render();
+        this.count = 0;
+    }
 
+
+    dragEvent(ev) {
+        ev.originalEvent.dataTransfer.setData("text", $(ev.target).attr('src'));
+    }
+
+    dropMaterial(ev) {
+        ev.preventDefault();
+        var data = ev.originalEvent.dataTransfer.getData("text");
+        var data = ev.originalEvent.dataTransfer.getData("text");
+        if ($(ev.target).localName != "img")
+            $(ev.target).closest('img').attr('src', data);
+        else {
+            $(ev.target).attr('src', data);
+        }
+    }
+
+    dropTexture(ev) {
+        ev.preventDefault();
+        var data = ev.originalEvent.dataTransfer.getData("text");
+        if ($(ev.target).localName != "img")
+            $(ev.target).closest('img').attr('src', data);
+        else {
+            $(ev.target).attr('src', data);
+        }
+    }
+
+    propertyChanged(ev) {
+        if (this.count == 4) {
+            var val = $('#color').css('background-color');
+            if (val.indexOf('rgba') >= 0) {
+                var a=val.slice(4).split(',');
+                console.log(a[0]);
+                val ='rgba'+a[0]+','+parseInt(a[1])+','+parseInt(a[2])+',' + parseFloat(((ev.target.value > 0) ? (ev.target.value / 100).toString() : (0).toString())) + ')';
+            }
+            else
+                val = val.replace(')', ", " + ((ev.target.value > 0) ? (ev.target.value / 100).toString() : (0).toString()) + ")").replace('rgb', 'rgba');
+            console.log(val);
+            $('#color').css('background-color', val);
+            this.count = 0;
+        }
+        else
+            this.count++;
     }
 
     changed(event) {

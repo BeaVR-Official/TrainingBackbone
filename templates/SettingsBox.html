@@ -4,8 +4,9 @@
             <button class="ui button basic icon prevTab"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
             <span>
                 <a class="active animated" data-tab="Transformations">Transformations</a>
-                <a class="animated" data-tab="Material">Material</a>
-                <a class="animated" data-tab="Scripts">Scripts</a>
+                <a class="animated" data-tab="Material">Apparence</a>
+                <a class="animated" data-tab="MaterialAdvanced">Apparence avancée</a>
+                <a class="animated" data-tab="Scripts">Animation</a>
             </span>
             <button class="ui button basic icon nextTab"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
         </div>
@@ -107,17 +108,16 @@
                 <div class="row" style="padding-top: 5px !important;" >
                     <div class="header">Mesh</div>
                 </div>
-
                 <div class="row two column boxes">
                     <div class="column" style="width:30% !important; padding-left: 10%; border-right: 1px solid grey; margin:auto; margin-left: 0; margin-right: 0;">
                         <span style=" color: white;">Mesh & Materiel</span>
                     </div>
                     <div class="column" style="width:70%; text-align:center; margin: auto; ">
-                        <div class="imageBox" style="margin-right: 17px;">
-                            <img src="http://beavr-creator-build.herokuapp.com/app/assets/images/cube.png">
+                        <div class="imageBox dropMaterial" style="margin-right: 17px;" draggable="true">
+                            <img src="http://beavr-creator-build.herokuapp.com/app/assets/images/cube.png"  draggable="true" >
                         </div>
-                        <div class="imageBox" style="border-radius: 50%;padding: 0;padding-top: 16px;">
-                            <img src="https://cdn3.iconfinder.com/data/icons/UltimateGnome/256x256/stock/stock_3d-texture.png">
+                        <div class="imageBox dropTexture" style="border-radius: 50%; padding: 0; padding-top: 16px;" >
+                            <img src="https://cdn3.iconfinder.com/data/icons/UltimateGnome/256x256/stock/stock_3d-texture.png" draggable="true">
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
 
                 <div class="row two column">
                     <div class="column" style="width:30% !important; padding-left: 10%; border-right: 1px solid grey;">
-                        <span style=" color: white;">Couleur</span>
+                        <span style=" color: white;">Couleur & Opacité</span>
                     </div>
                     <div class="column" style="width:70% !important; padding-left: 10%; padding-right:10%;">
                         <input type="text" id="color" class="ui button showPopup" style="width: 100%; text-align: center;" name="color" value="#123456" />
@@ -155,6 +155,11 @@
                             <div class="ui row center aligned" style="text-align:center;">
                                 <span style="margin: 0px 10px 0px 10px; color: white;">Choisissez une couleur</span>
                                 <div id="colorpicker"></div>
+                                <div class="Opacity">
+                                    <span style="float:left; color:white;">0</span>
+                                    <input id="sliderOpacity" type="range" min="0" max="100"  step="1"  value="100" data-orientation="vertical">
+                                    <span style="float:right; color:white;">1</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -164,19 +169,26 @@
         <div class="ui bottom attached tab segment" data-tab="Scripts">
             Scripts
         </div>
+        <div class="ui bottom attached tab segment" data-tab="MaterialAdvanced">
+            MaterialAdvanced
+        </div>
     </div>
 
     <button class="circular ui icon button black openSettings">
         <i class="fa fa-cog"></i>
     </button>
 </div>
-<script type="text/javascript" src="./colorpicker/js/colorpicker.js"></script>
 <script type="text/javascript" src="./farbtastic/farbtastic.js"></script>
+<script type="text/javascript" src="./rangeslider.js-2.2.1/rangeslider.min.js"></script>
+
 <script>
+/*
     $('.menu .item').tab();
+*/
 
     $(document).ready(function() {
         $('#colorpicker').farbtastic('#color');
+        $('input[type="range"]').rangeslider();
     });
 
     $('.showPopup')
@@ -229,7 +241,7 @@
         var selector =  $('span a.active');
         selector.animateCss('fadeOutLeft', 'active');
         var newActive;
-        if (selector.index() == 2) {
+        if (selector.index() == 3) {
             newActive = $('span a').first();
             newActive.addClass('active');
         }
@@ -243,6 +255,5 @@
         item.addClass('active');
         item.animateCss('fadeIn');
     });
-
 
 </script>
