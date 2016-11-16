@@ -1,5 +1,5 @@
 /**
- * Created by Nicolas on 11/13/2016.
+ * Created by Nicolas on 11/16/2016.
  */
 
 import Loader from '../utils';
@@ -8,10 +8,10 @@ import * as _ from '../../node_modules/underscore';
 import AuthModal from './AuthModalView';
 import $ from 'jquery';
 
-class RegisterModalView extends Backbone.View {
+class ResetPasswordModalView extends Backbone.View {
 
     get template() {
-        return _.template(Loader.templates.RegisterModal);
+        return _.template(Loader.templates.ResetPasswordModal);
     }
 
     get events() {
@@ -33,14 +33,14 @@ class RegisterModalView extends Backbone.View {
 
     openAuthModal() {
         var modal = new AuthModal();
-        $('#register_modal').animateCssOut('fadeOutLeft', modal);
+        $('#reset_password_modal').animateCssOut('fadeOutLeft', modal);
     }
 
     initialize() {}
 
     show() {
         this.render();
-        $('#register_modal').animateCssIn('fadeInLeft');
+        $('#reset_password_modal').animateCssIn('fadeInLeft');
     }
 
     render() {
@@ -49,4 +49,4 @@ class RegisterModalView extends Backbone.View {
     }
 }
 
-export default RegisterModalView;
+export default ResetPasswordModalView;

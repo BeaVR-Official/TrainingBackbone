@@ -1,5 +1,5 @@
 /**
- * Created by Nicolas on 11/13/2016.
+ * Created by Nicolas on 11/17/2016.
  */
 
 import Loader from '../utils';
@@ -8,15 +8,15 @@ import * as _ from '../../node_modules/underscore';
 import AuthModal from './AuthModalView';
 import $ from 'jquery';
 
-class RegisterModalView extends Backbone.View {
+class ProjectSelectionModalView extends Backbone.View {
 
     get template() {
-        return _.template(Loader.templates.RegisterModal);
+        return _.template(Loader.templates.ProjectSelectionModal);
     }
 
     get events() {
         return {
-            'click #back_button' : 'openAuthModal'
+            'click #disconnect_button' : 'openAuthModal'
         };
     }
 
@@ -33,14 +33,14 @@ class RegisterModalView extends Backbone.View {
 
     openAuthModal() {
         var modal = new AuthModal();
-        $('#register_modal').animateCssOut('fadeOutLeft', modal);
+        $('#project_selection_modal').animateCssOut('fadeOutLeft', modal);
     }
 
     initialize() {}
 
     show() {
         this.render();
-        $('#register_modal').animateCssIn('fadeInLeft');
+        $('#project_selection_modal').animateCssIn('fadeInLeft');
     }
 
     render() {
@@ -49,4 +49,4 @@ class RegisterModalView extends Backbone.View {
     }
 }
 
-export default RegisterModalView;
+export default ProjectSelectionModalView;

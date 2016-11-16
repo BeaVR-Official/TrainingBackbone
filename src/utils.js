@@ -30,6 +30,23 @@ class Loader {
     get(name) {
         return this.templates[name];
     }
+
+    initStyles() {
+        $.fn.extend({
+            animateCssIn: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function() {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            },
+            animateCssOut: function (animationName, destinationModal) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function() {
+                    destinationModal.show();
+                });
+            },
+        });
+    }
 }
 
 export default new Loader;
