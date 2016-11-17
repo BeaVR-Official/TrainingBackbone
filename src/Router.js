@@ -3,6 +3,7 @@
  */
 
 import HelloWorldView from './views/HelloWorldView';
+import TopBarView from './views/TopBarView';
 import * as Backbone from 'backbone';
 
 class Router extends Backbone.Router {
@@ -10,13 +11,17 @@ class Router extends Backbone.Router {
     constructor() {
         super({
             routes: {
-                '': 'HelloWorld'
+                '': 'HelloWorld',
             }
         });
     }
 
     HelloWorld() {
         new HelloWorldView();
+    }
+
+    TopBar() {
+        new TopBarView();
     }
 
 }
