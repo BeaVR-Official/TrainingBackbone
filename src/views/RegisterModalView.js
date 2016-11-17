@@ -33,14 +33,14 @@ class RegisterModalView extends Backbone.View {
 
     openAuthModal() {
         var modal = new AuthModal();
-        $('#register_modal').animateCssOut('fadeOutLeft', modal);
+        $('#register_modal').animateCssOut('fadeOutRight', modal);
     }
 
     initialize() {}
 
     show() {
         this.render();
-        $('#register_modal').animateCssIn('fadeInLeft');
+        $('#register_modal').animateCssIn('fadeInRight');
     }
 
     render() {

@@ -32,17 +32,17 @@ class AuthModalView extends Backbone.View {
 
     openRegisterModal() {
         var modal = new RegisterModal();
-        $('#login_modal').animateCssOut('fadeOutRight', modal);
+        $('#login_modal').animateCssOut('fadeOutLeft', modal);
     }
 
     openResetPasswordModal() {
         var modal = new ResetPasswordModal();
-        $('#login_modal').animateCssOut('fadeOutRight', modal);
+        $('#login_modal').animateCssOut('fadeOutLeft', modal);
     }
 
     loginUser() {
         var modal = new ProjectSelectionModal();
-        $('#login_modal').animateCssOut('fadeOutRight', modal);
+        $('#login_modal').animateCssOut('fadeOutLeft', modal);
     }
 
     constructor() {
@@ -55,7 +55,7 @@ class AuthModalView extends Backbone.View {
     show(showAnim = true) {
         this.render();
         if (showAnim === true)
-            $('#login_modal').animateCssIn('fadeInRight');
+            $('#login_modal').animateCssIn('fadeInLeft');
     }
 
     initialize() {}

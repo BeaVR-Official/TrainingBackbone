@@ -33,14 +33,14 @@ class ProjectSelectionModalView extends Backbone.View {
 
     openAuthModal() {
         var modal = new AuthModal();
-        $('#project_selection_modal').animateCssOut('fadeOutLeft', modal);
+        $('#project_selection_modal').animateCssOut('fadeOutRight', modal);
     }
 
     initialize() {}
 
     show() {
         this.render();
-        $('#project_selection_modal').animateCssIn('fadeInLeft');
+        $('#project_selection_modal').animateCssIn('fadeInRight');
     }
 
     render() {

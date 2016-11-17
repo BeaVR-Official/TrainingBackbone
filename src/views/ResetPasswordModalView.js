@@ -33,14 +33,14 @@ class ResetPasswordModalView extends Backbone.View {
 
     openAuthModal() {
         var modal = new AuthModal();
-        $('#reset_password_modal').animateCssOut('fadeOutLeft', modal);
+        $('#reset_password_modal').animateCssOut('fadeOutRight', modal);
     }
 
     initialize() {}
 
     show() {
         this.render();
-        $('#reset_password_modal').animateCssIn('fadeInLeft');
+        $('#reset_password_modal').animateCssIn('fadeInRight');
     }
 
     render() {
