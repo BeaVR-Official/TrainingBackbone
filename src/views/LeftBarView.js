@@ -35,6 +35,7 @@ class LeftBarView extends Backbone.View {
             events: {}
         });
         console.log("TEST");
+        this.render();
     }
 
     render() {
