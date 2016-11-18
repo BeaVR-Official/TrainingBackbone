@@ -1,3 +1,60 @@
-.TopBar{
-  background-color:gray;
+.TopBar {
+  background-color:#3F3F3F;
+}
+
+#tab-bar {
+  padding-left:0px;
+}
+
+.scene-tabs .item {
+  margin-top:20px;
+  margin-left:1px;
+  margin-right:1px;
+  height:30px;
+  background-color:#24777A !important;
+  border-radius:7px 7px 0 0 !important;
+  padding-right:5px !important;
+}
+
+.add-tab {
+  padding: 0 5px !important;
+}
+
+.add-tab:active {
+  background-color:#1BB2BD !important;
+}
+
+.add-tab span {
+  font-size:24px;
+  padding: 0px 5px;
+}
+
+.scene-tabs .active {
+  background-color:#1BB2BD !important;
+}
+
+.close-cross {
+  margin-left:15px;
+  margin-bottom:15px;
+  font-size:16px;
+  color:#3f3f3f;
+}
+
+.close-cross:hover {
+  color:black;
+}
+
+#logo {
+  text-align:center;
+}
+
+#logo img {
+  height:30px;
+  vertical-align:middle;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }

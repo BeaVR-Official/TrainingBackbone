@@ -8,12 +8,18 @@ require('../../sass/TopBar.scss');
 class ObjectMenuView extends Backbone.View {
 
     get template() {
-        console.log(Loader.templates.TopBar);
         return _.template(Loader.templates.TopBar);
     }
 
     get $el() {
         return $('.TopBarSelector');
+    }
+
+    get events() {
+        return {
+            'click .close-cross': 'test',
+            'click .add-tab': 'test',
+        };
     }
 
     constructor() {
@@ -26,6 +32,10 @@ class ObjectMenuView extends Backbone.View {
     render() {
         this.$el.html(this.template());
         return this;
+    }
+
+    test() {
+        console.log("ok");
     }
 }
 

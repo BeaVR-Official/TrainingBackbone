@@ -1,3 +1,30 @@
 <div class="TopBar">
-    <h2>Test top bar</h2>
+    <div class="ui grid">
+        <div id="logo" class="one wide column">
+            <span class="helper"></span>
+            <img src="assets/2017_logo_beavr.png">
+        </div>
+        <div id="tab-bar" class="fifteen wide column">
+            <div class="ui top attached tabular menu scene-tabs">
+                <a class="item tab" data-tab="first">First<span class="close-cross">x</span></a>
+                <a class="item tab" data-tab="second">Second<span class="close-cross">x</span></a>
+                <a class="item tab active" data-tab="third">Third<span class="close-cross">x</span></a>
+                <a class="add-tab item"><span>+</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="first">
+        First
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="second">
+        Second
+    </div>
+    <div class="ui bottom attached tab segment active" data-tab="third">
+        Third
+    </div>
+
+    <script>
+        $('.menu .item').tab();
+    </script>
+
 </div>
