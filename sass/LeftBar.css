@@ -1,5 +1,17 @@
 .LeftBar {
-    width: 200px;
+    width: 500px;
     height: 500px;
     background-color: aqua;
+    display: block;
+}
+
+.LeftBar :hover {
+    background-color: black;
+}
+
+.ui.inverted.menu {
+    background-color:red;
+}
+#leftMenu {
+    background-color: red;
 }

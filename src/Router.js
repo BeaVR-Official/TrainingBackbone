@@ -13,16 +13,11 @@ class Router extends Backbone.Router {
     constructor() {
         super({
             routes: {
-                '': 'HelloWorld'
+                '': 'initialize',
             }
         });
     }
-
-    HelloWorld() {
-        new HelloWorldView();
-    }
-    LeftBar() {
-        console.log("Init left bar");
+    initialize(){
         new LeftBarView();
     }
 }

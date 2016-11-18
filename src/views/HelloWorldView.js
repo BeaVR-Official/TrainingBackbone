@@ -8,13 +8,13 @@ import * as _ from '../../node_modules/underscore';
 import $ from 'jquery';
 
 require('../../sass/HelloWorld.scss');
+require('../../sass/LeftBar.scss');
+
 
 class ObjectMenuView extends Backbone.View {
 
     get template() {
-        console.log(Loader.templates.LeftBarView);
-        return _.template(Loader.templates.LeftBarView);
-        //return _.template(Loader.templates.HelloWorld);
+        return _.template(Loader.templates.HelloWorld);
     }
 
     get $el() {
