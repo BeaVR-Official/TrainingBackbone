@@ -12,8 +12,9 @@ require('../../sass/HelloWorld.scss');
 class ObjectMenuView extends Backbone.View {
 
     get template() {
-        console.log(Loader.templates.HelloWorld);
-        return _.template(Loader.templates.HelloWorld);
+        console.log(Loader.templates.LeftBarView);
+        return _.template(Loader.templates.LeftBarView);
+        //return _.template(Loader.templates.HelloWorld);
     }
 
     get $el() {
