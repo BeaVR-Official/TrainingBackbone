@@ -1,34 +1,12 @@
-<!--<div id="leftMenu" class="ui left demo vertical inverted sidebar labeled icon menu visible">
-<% _.each(menu, function(item, i){
-
-    console.log(item);
-    %>
-    <a class="item">
-        <i class="<%- item.logo %>"></i>
-        <%- item.name %>
-    </a>
-</div>
-<% }); %> -->
-
-
 <div id="leftMenu" class="ui left demo vertical inverted sidebar labeled icon menu visible">
-
-    <a id="item1" class="item">
-        <i class="list icon"></i>
-        Three View
-    </a>
-    <a id="item2" class="item">
-        <i class="cubes icon"></i>
-        Topics
-    </a>
-    <a class="item">
-        <i class="puzzle icon"></i>
-        Settings
-    </a>
-    <a class="item">
-        <i class="plus square outline icon"></i>
-        Ajouter
-    </a>
+<% _.each(menu, function(item, i){ %>
+    <div class="row">
+        <a class="item">
+            <i class="<%- item.logo %>"></i>
+            <%- item.name %>
+        </a>
+    </div>
+    <% }); %>
 </div>
 
 <script>
