@@ -1,7 +1,7 @@
 <div id="leftMenu" class="ui left demo vertical inverted sidebar labeled icon menu visible">
-<% _.each(menu, function(item, i){ %>
+<% _.each(menu, function(item, i){%>
     <div class="row">
-        <a class="item">
+        <a id="item<%- item.id %>" class="item">
             <i class="<%- item.logo %>"></i>
             <%- item.name %>
         </a>
@@ -11,10 +11,17 @@
 
 <script>
 
-    $('#item1').click(function () {
+/*    $('#item1').click(function () {
+
+        $('.ContainerTreeViewSelector')
+            .transition('scale')
+        ;
+    });*/
+
+    $('#item2').click(function () {
 
         $('.ContainerObjectSelector')
-            .transition('scale')
+            .transition('fly right')
         ;
     });
 </script>

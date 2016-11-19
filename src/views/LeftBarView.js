@@ -24,13 +24,19 @@ class LeftBarView extends Backbone.View {
 
     get events() {
         return {
-            'click #item1' : 'openContainerObject',
-            'click #item2' : 'addFile',
+            'click #item2' : 'openContainerObject',
+            'click #item3' : 'addFile',
         };
     }
 
     get $el() {
         return $('.LeftBarSelector');
+    }
+
+    openContainerTreeView(){
+
+        var containerTreeView = new ContainerTreeView();
+        containerTreeView.render();
     }
 
     openContainerObject() {
