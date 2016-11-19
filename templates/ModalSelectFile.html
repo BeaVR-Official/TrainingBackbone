@@ -1,52 +1,20 @@
-<style>
-    .inputfile {
-        /* visibility: hidden etc. wont work */
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-    }
-    .inputfile:focus + label {
-        /* keyboard navigation */
-        outline: 1px dotted #000;
-        outline: -webkit-focus-ring-color auto 5px;
-    }
-    .inputfile + label * {
-        pointer-events: none;
-    }
 
-
-</style>
-
-<div class="ui dimmer modals page transition visible active">
-    <div class="ui modal transition visible active beavr-anim" id="login_modal">
+<!-- <div class="ui dimmer modals page transition visible active"> -->
+<div class="ui modals">
+    <div class="ui modal transition visible active beavr-anim" id="fileUpload_modal">
         <div class="header">
             Importer un fichier
         </div>
-
         <div class="image content">
             <div class="ui medium image">
-                <!--<img src="assets/beavr_logo.png" class="beavr-logo" alt="Logo BeaVR" />-->
             </div>
             <div class="description">
                 <div class="ui header">Selectionner un fichier à ajouter au projet.</div>
-                <form class="ui form fluid warning" name="connectionForm">
+                <form class="ui form fluid warning" name="addFileForm">
                     <div class="required field">
                         <div class="ui left icon input">
                             <i class="download icon"></i>
-                            <input type="file" name="email" placeholder="Fichier à ajouter" required>
-                        </div>
-                    </div>
-                    <div class="required field">
-                        <div class="ui action left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="Mot de passe" required>
-                            <button type="button" class="ui teal right labeled icon button" id="reset_password">
-                                <i class="privacy icon"></i>
-                                <p>Mot de passe oublié ?</p>
-                            </button>
+                            <input type="file" name="file" placeholder="Fichier à ajouter" required>
                         </div>
                     </div>
                 </form>
@@ -54,21 +22,10 @@
         </div>
         <div class="actions">
             <div class="ui blue right labeled icon button">
-                Créer un projet sans se connecter
+                Ajouter au projet
                 <i class="plus icon"></i>
             </div>
         </div>
-        <div>
-            <label class="ui icon button">
-                <i class="cloud icon"></i>
-                Open File
-            </label>
-            <input type="file" id="hidden-new-file" style="display: none">
-        </div>
-
-        <input type="file" name="file" id="file" class="inputfile" />
-        <label for="file">Choose a file (Click me)</label>
-
     </div>
 </div>
 

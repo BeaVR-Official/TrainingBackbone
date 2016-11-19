@@ -1,12 +1,33 @@
+<div class="containerObject">
+    <% _.each(object, function(objet, i){
 
-<div class="ui tabular menu">
+    console.log(objet);
+    %>
+
+    <div class="row">
+        <div class="column">
+            <% if(objet.isMadeByUser == true){ %>
+                <button class="ui red button"><%- objet.name %></button>
+            <% } else { %>
+                <button class="ui green button"><%- objet.name %></button>
+            <% } %>
+        </div>
+    </div>
+    <% }); %>
+    <div class="row">
+        <button class="ui blue button">Importer votre objet</button>
+    </div>
+</div>
+
+
+<!--<div class="ui tabular menu">
     <a class="item active">
         Tous
     </a>
     <a class="item">
         Utilisés
     </a>
-</div>
+</div>-->
 
 <div class="ui bottom attached tab segment" data-tab="first">
     First page

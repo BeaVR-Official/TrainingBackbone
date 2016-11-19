@@ -13,7 +13,6 @@ import ModalSelectFile from '../views/ModalSelectFileView';
 import ItemLeftMenu from '../models/ItemLeftMenu';
 import LeftMenuCollection from  '../collections/LeftMenuCollection';
 
-
 require('../../sass/LeftBar.scss');
 
 class LeftBarView extends Backbone.View {
@@ -44,7 +43,7 @@ class LeftBarView extends Backbone.View {
     }
 
     addFile(){
-        var modal = new ModalSelectFile();
+       var modal = new ModalSelectFile();
         modal.render();
         // /$('.ModalSelectFile').modal('show')//.show() .animateCssOut('fadeOutLeft', modal);
     }

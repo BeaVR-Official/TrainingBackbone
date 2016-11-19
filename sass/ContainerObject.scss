@@ -6,13 +6,42 @@ $backgroundColorSideBar: #1B1C1D;
 
 .ContainerObjectSelector {
 
+.containerObject {
+
+  //position:absolute;
+  //top:$sizeTopMenu;
+  //left:$sizeSideBar;
+  width: 100px;
+  height: 100%;
+
+  overflow-style: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+
   position: fixed;
   top: $sizeTopMenu;
   left: $sizeSideBar;
-  width:250px;
+  width:150px;
   height:100%;
   background: $backgroundColorSideBar;
 
+  //overflow: scroll;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display:none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #FF0000;
+  }
 
   .ui.tabular.menu .active.item {
 
@@ -21,7 +50,9 @@ $backgroundColorSideBar: #1B1C1D;
   }
   .ui {
 
-    //background: red;
+    .green {
+
+    }
     &.tabular {
 
       width: 100%;
