@@ -18,9 +18,6 @@ class LeftBarView extends Backbone.View {
 
     get events() {
         return {
-            /*'click #register_button' : 'openRegisterModal',
-            'click #reset_password' : 'openResetPasswordModal',
-            'click #login_button' : 'loginUser'*/
         };
     }
 
@@ -34,7 +31,6 @@ class LeftBarView extends Backbone.View {
         super({
             events: {}
         });
-        console.log("TEST");
         this.render();
     }
 

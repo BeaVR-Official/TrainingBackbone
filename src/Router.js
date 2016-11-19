@@ -2,7 +2,6 @@
  * Created by ekersale on 08/11/2016.
  */
 
-import HelloWorldView from './views/HelloWorldView';
 import LeftBarView from  './views/LeftBarView';
 
 
@@ -17,6 +16,7 @@ class Router extends Backbone.Router {
             }
         });
     }
+
     initialize(){
         new LeftBarView();
     }
