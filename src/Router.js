@@ -7,6 +7,7 @@ import AuthModalView from './views/AuthModalView';
 import RegisterModalView from './views/RegisterModalView'
 import ResetPasswordModalView from './views/ResetPasswordModalView'
 import ProjectSelectionModalView from './views/ProjectSelectionModalView'
+import ProjectCreationModalView from './views/ProjectCreationModalView'
 import * as Backbone from 'backbone';
 
 class Router extends Backbone.Router {
@@ -37,6 +38,10 @@ class Router extends Backbone.Router {
 
     ProjectSelectionModal() {
         new ProjectSelectionModalView();
+    }
+
+    ProjectCreationModal() {
+        new ProjectCreationModalView();
     }
 
 }

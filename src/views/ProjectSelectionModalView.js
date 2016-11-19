@@ -6,6 +6,7 @@ import Loader from '../utils';
 import * as Backbone from 'backbone';
 import * as _ from '../../node_modules/underscore';
 import AuthModal from './AuthModalView';
+import ProjectCreationModal from './ProjectCreationModalView'
 import $ from 'jquery';
 
 class ProjectSelectionModalView extends Backbone.View {
@@ -16,7 +17,8 @@ class ProjectSelectionModalView extends Backbone.View {
 
     get events() {
         return {
-            'click #disconnect_button' : 'openAuthModal'
+            'click #disconnect_button' : 'openAuthModal',
+            'click #project_creation_button' : 'openProjectCreationModal'
         };
     }
 
@@ -36,11 +38,19 @@ class ProjectSelectionModalView extends Backbone.View {
         $('#project_selection_modal').animateCssOut('fadeOutRight', modal);
     }
 
+    openProjectCreationModal() {
+        var modal = new ProjectCreationModal(this);
+        $('#project_selection_modal').animateCssOut('fadeOutLeft', modal);
+    }
+
     initialize() {}
 
-    show() {
+    show(backanim = false) {
         this.render();
-        $('#project_selection_modal').animateCssIn('fadeInRight');
+        if (backanim)
+            $('#project_selection_modal').animateCssIn('fadeInLeft');
+        else
+            $('#project_selection_modal').animateCssIn('fadeInRight');
     }
 
     render() {

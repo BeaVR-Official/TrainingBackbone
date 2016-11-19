@@ -9,6 +9,7 @@ import $ from 'jquery';
 import RegisterModal from './RegisterModalView';
 import ResetPasswordModal from './ResetPasswordModalView';
 import ProjectSelectionModal from './ProjectSelectionModalView'
+import ProjectCreationModal from './ProjectCreationModalView'
 
 require('../../sass/AuthModal.scss');
 
@@ -22,7 +23,8 @@ class AuthModalView extends Backbone.View {
         return {
             'click #register_button' : 'openRegisterModal',
             'click #reset_password' : 'openResetPasswordModal',
-            'click #login_button' : 'loginUser'
+            'click #login_button' : 'loginUser',
+            'click #project_creation_button' : 'openProjectCreationModal'
         };
     }
 
@@ -45,6 +47,11 @@ class AuthModalView extends Backbone.View {
         $('#login_modal').animateCssOut('fadeOutLeft', modal);
     }
 
+    openProjectCreationModal() {
+        var modal = new ProjectCreationModal(this);
+        $('#login_modal').animateCssOut('fadeOutLeft', modal);
+    }
+
     constructor() {
         super({
             events: {}
@@ -54,7 +61,7 @@ class AuthModalView extends Backbone.View {
 
     show(showAnim = true) {
         this.render();
-        if (showAnim === true)
+        if (showAnim)
             $('#login_modal').animateCssIn('fadeInLeft');
     }
 

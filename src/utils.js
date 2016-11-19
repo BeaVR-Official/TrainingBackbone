@@ -34,17 +34,26 @@ class Loader {
     initStyles() {
         $.fn.extend({
             animateCssIn: function (animationName) {
-                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
                 this.addClass('animated ' + animationName).one(animationEnd, function() {
                     $(this).removeClass('animated ' + animationName);
                 });
             },
-            animateCssOut: function (animationName, destinationModal) {
-                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            animateCssOut: function (animationName, destinationModal, param = false) {
+                let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
                 this.addClass('animated ' + animationName).one(animationEnd, function() {
-                    destinationModal.show();
+                    if (param)
+                        destinationModal.show(true);
+                    else
+                        destinationModal.show();
                 });
             },
+            dismissModal: function (animationName) {
+                let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function() {
+                    $('.modals').remove();
+                });
+            }
         });
     }
 }
