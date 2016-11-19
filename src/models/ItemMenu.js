@@ -1,11 +1,11 @@
 /**
- * Created by napsters on 18/11/2016
+ * Created by napsters on 19/11/2016.
  */
 
 import Router from "../Router";
 import * as Backbone from 'backbone';
 
-class ItemLeftMenu extends Backbone.Model{
+class ItemMenu extends Backbone.Model {
 
     get idAttribute(){
         return '_id';
@@ -25,13 +25,13 @@ class ItemLeftMenu extends Backbone.Model{
             id: -1,
             name: '',
             logo: '',
-            isUsed: false
+            category:'',
+            modelPath: '',
+            isUsed: false,
+            isMadeByUser: false
         };
     }
 
-    get(name){
-        return this.attributes[name];
-    }
 }
 
-export default ItemLeftMenu;
+export default ItemMenu;

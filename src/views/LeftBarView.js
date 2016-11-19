@@ -7,12 +7,12 @@ import * as Backbone from 'backbone';
 import * as _ from '../../node_modules/underscore';
 import $ from 'jquery';
 
-
 import ContainerObject from '../views/ContainerObjectView';
 import ModalSelectFile from '../views/ModalSelectFileView';
 
-
 import ItemLeftMenu from '../models/ItemLeftMenu';
+import LeftMenuCollection from  '../collections/LeftMenuCollection';
+
 
 require('../../sass/LeftBar.scss');
 
@@ -38,6 +38,9 @@ class LeftBarView extends Backbone.View {
 
         var container = new ContainerObject();
         container.render();
+
+        //Backbone.View.WebkitTransition.fadeIn();
+        //$('.ModalSelectFile');//.modal('show'); //.show() .animateCssOut('fadeOutLeft', modal);
     }
 
     addFile(){
@@ -54,49 +57,30 @@ class LeftBarView extends Backbone.View {
 
         Loader.initStyles();
 
-        var SurfboardsCollection = Backbone.Collection.extend({
-            model: ItemLeftMenu
-        });
+        let itemsMenu = [];
 
-        var Surfboard = Backbone.Model.extend({
-            defaults: {
-                id: 1,
-                logo: '',
-                name: 'Test 1'
-            }
-        });
+        itemsMenu.push(new ItemLeftMenu({id: 1, name: 'Three View', logo: 'list icon', isUsed:true}));
+        itemsMenu.push(new ItemLeftMenu({id: 2, name: 'Topics', logo: 'cubes icon', isUsed:true}));
+        itemsMenu.push(new ItemLeftMenu({id: 3, name: 'Settings', logo: 'puzzle icon', isUsed:true}));
+        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Ajouter', logo: 'plus square outline icon', isUsed:true}));
 
-        var board1 = new Surfboard({
-            id: 1,
-            logo: '',
-            name: 'item 1'
-        });
-
-        var board2 = new Surfboard({
-            id: 2,
-            logo: '',
-            name: 'item 2'
-        });
-
-
-        var item1 = new ItemLeftMenu();
-
-
-        var Surfboards = new SurfboardsCollection;
-        Surfboards.add(board1);
-        Surfboards.add(board2);
-        //var collection =
-
+        this.menu = new LeftMenuCollection(itemsMenu);
 
 
         this.render();
     }
 
-
     render() {
-        this.$el.html(this.template());
+        this.$el.html(this.template({
+            menu: this.menu.toJSON()
+        }));
         return this;
     }
+
+    /*render() {
+        this.$el.html(this.template());
+        return this;
+    }*/
 }
 
 export default LeftBarView;

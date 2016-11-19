@@ -4,6 +4,10 @@
   #{$key}: calc(#{$value});
 }
 
+$sizeTopMenu: 15%;
+
+$backgroundColorSideBar: #1B1C1D;
+
 .LeftBarSelector {
 
   overflow: scroll;
@@ -30,7 +34,7 @@
       &.visible {
 
         &.sidebar {
-            top: 15%;
+            top:$sizeTopMenu;
         }
       }
     }
@@ -39,6 +43,8 @@
       &.icon {
 
         &.menu {
+
+          background: $backgroundColorSideBar;
 
           &.a {
 

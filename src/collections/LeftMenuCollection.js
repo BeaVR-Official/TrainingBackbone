@@ -3,24 +3,25 @@
  */
 
 import Router from "../Router";
+
 import ItemLeftMenu from "../models/ItemLeftMenu";
 
-import * as Backbone from '../../../../node_modules/backbone/backbone';
+import * as Backbone from 'backbone';
 
-class LeftMenuCollection extends  Backbone.Collection(){
+class LeftMenuCollection extends Backbone.Collection {
 
-    url(){
-        return ""; //Router.baseURI;
+    url() {
+        return Router.base +  "/creator/categories";
     }
 
-    get model(){
+    get model() {
         return ItemLeftMenu;
     }
 
     constructor(params) {
-
         super(params);
     }
 }
 
-export  default LeftMenuCollection;
+export default LeftMenuCollection;
+

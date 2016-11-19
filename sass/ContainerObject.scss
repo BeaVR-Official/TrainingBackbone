@@ -1,17 +1,53 @@
+
+$sizeTopMenu: 15%;
+$sizeSideBar: 102.23px;
+
+$backgroundColorSideBar: #1B1C1D;
+
 .ContainerObjectSelector {
 
+  position: fixed;
+  top: $sizeTopMenu;
+  left: $sizeSideBar;
+  width:250px;
+  height:100%;
+  background: $backgroundColorSideBar;
+
+
+  .ui.tabular.menu .active.item {
+
+   background: green;
+    width: 50%;
+  }
   .ui {
 
+    //background: red;
     &.tabular {
 
+      width: 100%;
       &.menu {
-        position: absolute;
-        left: 103px;
 
-        width: 300px;
+        width: 100%;
+
+        .active {
+
+          .item{
+            background: magenta;
+          }
+        }
+
+        &:active {
+
+          .item{
+
+            background: aqua;
+          }
+        }
+        //.ui.tabular.menu .active.item
+
         //background: black;
       }
     }
   }
-
 }
+
