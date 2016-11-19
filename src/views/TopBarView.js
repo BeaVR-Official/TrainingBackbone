@@ -19,6 +19,7 @@ class ObjectMenuView extends Backbone.View {
         return {
             'click .close-cross': 'test',
             'click .add-tab': 'test',
+            'click .project-tab': 'test'
         };
     }
 

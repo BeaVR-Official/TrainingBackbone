@@ -24122,7 +24122,8 @@
 	        get: function get() {
 	            return {
 	                'click .close-cross': 'test',
-	                'click .add-tab': 'test'
+	                'click .add-tab': 'test',
+	                'click .project-tab': 'test'
 	            };
 	        }
 	    }]);
@@ -24191,7 +24192,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".TopBar {\n  background-color: #3F3F3F; }\n\n#tab-bar {\n  padding-left: 0px; }\n\n.scene-tabs .item {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding-right: 5px !important; }\n\n.add-tab {\n  padding: 0 5px !important; }\n\n.add-tab:active {\n  background-color: #1BB2BD !important; }\n\n.add-tab span {\n  font-size: 24px;\n  padding: 0px 5px; }\n\n.scene-tabs .active {\n  background-color: #1BB2BD !important; }\n\n.close-cross {\n  margin-left: 15px;\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #3f3f3f; }\n\n.close-cross:hover {\n  color: black; }\n\n#logo {\n  text-align: center; }\n\n#logo img {\n  height: 30px;\n  vertical-align: middle; }\n\n.helper {\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle; }\n", ""]);
+	exports.push([module.id, ".TopBar {\n  background-color: #3F3F3F; }\n\n#tab-bar {\n  padding-left: 0px; }\n\n.scene-tabs .tab {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding-right: 5px !important; }\n\n.add-tab {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding: 0 5px !important; }\n\n.add-tab:active {\n  background-color: #1BB2BD !important; }\n\n.add-tab span {\n  font-size: 24px;\n  padding: 0px 5px; }\n\n.scene-tabs .active {\n  background-color: #1BB2BD !important; }\n\n.close-cross {\n  margin-left: 15px;\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #3f3f3f; }\n\n.close-cross:hover {\n  color: black; }\n\n#logo {\n  text-align: center; }\n\n#logo img {\n  height: 30px;\n  vertical-align: middle; }\n\n.helper {\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle; }\n\n.project-tab {\n  margin-left: 1px;\n  margin-right: 1px;\n  background-color: #24777A !important;\n  padding-right: 20px !important;\n  padding-top: 0px !important;\n  padding-bottom: 0px !important;\n  height: initial !important;\n  margin-top: 0px !important;\n  border-radius: 0px !important; }\n\n.project-tab:active {\n  background-color: #1BB2BD !important; }\n\n.inside {\n  text-align: center; }\n\n.inside img {\n  height: 25px;\n  width: 25px; }\n\n.inside span {\n  display: block;\n  font-size: 16px; }\n", ""]);
 	
 	// exports
 
