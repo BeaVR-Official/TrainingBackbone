@@ -10,7 +10,7 @@ import * as Backbone from '../../../../node_modules/backbone/backbone';
 class LeftMenuCollection extends  Backbone.Collection(){
 
     url(){
-        return Router.baseURI;
+        return ""; //Router.baseURI;
     }
 
     get model(){
@@ -18,6 +18,7 @@ class LeftMenuCollection extends  Backbone.Collection(){
     }
 
     constructor(params) {
+
         super(params);
     }
 }

@@ -1,0 +1,17 @@
+.ContainerObjectSelector {
+
+  .ui {
+
+    &.tabular {
+
+      &.menu {
+        position: absolute;
+        left: 103px;
+
+        width: 300px;
+        //background: black;
+      }
+    }
+  }
+
+}
