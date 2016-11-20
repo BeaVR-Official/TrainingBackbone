@@ -15,9 +15,32 @@ $activeTabBackgroundColor:#1BB2BD;
   position:absolute;
   top: $sizeTopMenu;
   left: $sizeSideBar;
-  width: 250px;
-  //height: 100%;
+  width: 180px;
 
+  .ui.segment {
+    border: none;
+    background-color: $greyTopBarBackgroundColor;
+  }
+
+  .ui.tabular.menu .item {
+    color: white;
+    width: 50%;
+    background-color: $greyTopBarBackgroundColor;
+  }
+
+  .eight.wide.column {
+      padding: 0;
+  }
+
+  .ui.teal.basic.huge.button {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+  }
+  .a .active.item {
+    background-color: $activeTabBackgroundColor;
+  }
+  /*
   .ui.items :hover {
 
   }
@@ -69,55 +92,6 @@ $activeTabBackgroundColor:#1BB2BD;
         }
       }
     }
-  }
+  }*/
 
 }
-
-/*.test {
-  //position: fixed;
-  position: absolute;
-  top: $sizeTopMenu;
-  left: $sizeSideBar;
-  width:300px;
-  height:100%;
-  background: $backgroundColorSideBar;
-  overflow-y: scroll;
-
-  ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #FF0000;
-  }
-}
-.ContainerObjectSelector {
-
-  //overflow:auto;
-  overflow: scroll;
-  overflow-x: hidden;
-
-
-
-  .ui.items > .item > .content > .header {
-    color: white;
-  }
-
-  .ui.items {
-    margin-top: 8px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    margin-left: 0px;
-    padding-right: 20px;
-  }
-
-  .ui.items > .item {
-    padding-top: 10px;
-    border-radius: 2px;
-  }
-  .ui.attached.bottom.button {
-    color: white;
-    background-color: $inactiveTabBackgroundColor;
-  }
-}*/

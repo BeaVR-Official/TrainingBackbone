@@ -1,39 +1,28 @@
 
 <div class="container">
     <div class="ui top attached tabular menu">
-        <a class="item" data-tab="first">Tous</a>
+        <a class="active item" data-tab="first">First</a>
+        <!--<a class="item" data-tab="first">Tous</a>-->
         <a class="item" data-tab="second">Utilisés</a>
     </div>
+
     <div class="ui bottom attached tab segment active" data-tab="first">
+        <div class="ui grid">
+            <% _.each(object, function(objet, i){  %> 
+            <div class="eight wide column">
+                <button class="ui teal basic huge button">
+                    <i class="user icon"></i>
+                </button>
+            </div>
 
-        <div class="ui items">
-            <% _.each(object, function(objet, i){
-            %>
-            <div class="item">
-                <div class="ui mini image">
-                    <img src="http://www.freeiconspng.com/uploads/file-light-bulb-yellow-icon-svg-2.png">
-                </div>
-                <div class="small aligned content">
-                    <div class="header">
-                        <%- objet.name %>
-                    </div>
-                    <div class="description">
-                        <p></p>
-                    </div>
-                    <div class="extra">
-                        <% if(objet.isMadeByUser == true){ %>
-                        <i class="user icon"></i>
-                        <button id="<%- objet.id %>" class="ui red mini right floated icon button removeButton">
-                            <i class="remove icon"></i>
-                        </button>
-                        <% } %>
-
-                    </div>
-                </div>
+            <div class="eight wide column">
+                <button class="ui teal basic huge button">
+                    <i class="user icon"></i>
+                </button>
             </div>
             <% }); %>
-        </div>
 
+        </div>
         <div class="ui bottom attached button" tabindex="0">Ajouter un objet</div>
 
     </div>
