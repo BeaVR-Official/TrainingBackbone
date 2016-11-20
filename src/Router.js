@@ -2,22 +2,29 @@
  * Created by ekersale on 08/11/2016.
  */
 
-import HelloWorldView from './views/HelloWorldView';
 import AuthModalView from './views/AuthModalView';
-import RegisterModalView from './views/RegisterModalView'
 import * as Backbone from 'backbone';
+import SettingsBox from './views/SettingsBox';
+import NextPrevBox from './views/NextPrevBox';
+import ToolsBox from './views/ToolsBox';
 
 class Router extends Backbone.Router {
 
     constructor() {
         super({
             routes: {
-                '': 'HelloWorld'
+                '': 'StartMenu'
             }
         });
     }
 
-    HelloWorld() {
+    StartMenu() {
+        this.home();
+        var authModal = new AuthModalView();
+        authModal.openModal();
+    }
+
+/*    HelloWorld() {
         new HelloWorldView();
     }
 
@@ -27,6 +34,12 @@ class Router extends Backbone.Router {
 
     RegisterModal() {
         new RegisterModalView();
+    }*/
+
+    home() {
+        new SettingsBox();
+        new NextPrevBox();
+        new ToolsBox();
     }
 
 }
