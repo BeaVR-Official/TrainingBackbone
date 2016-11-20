@@ -1,15 +1,38 @@
-<div class="ui modals">
-    <div class="ui modal transition visible active" id="fileUpload_modal">
+<!--<div class="ui basic modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Archive Old Messages
+    </div>
+    <div class="image content">
+        <div class="image">
+            <i class="archive icon"></i>
+        </div>
+        <div class="description">
+            <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="two fluid ui inverted buttons">
+            <div class="ui cancel red basic inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui ok green basic inverted button">
+                <i class="checkmark icon"></i>
+                Yes
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="ui  modals">
+    <div class="ui basic modal transition visible active" id="fileUpload_modal">
         <div class="header">
             Importer un fichier
         </div>
         <div class="image content">
-            <!--<div class="ui medium image">
-            </div>-->
-
-
             <div class="description">
-                <div class="ui header">Selectionner un fichier à ajouter au projet.</div>
+                <!--<div class="ui header">Selectionner un fichier à ajouter au projet.</div>-->
 
                 <div class="ui equal width grid">
                     <div class="equal width row">
@@ -21,8 +44,8 @@
                                 <input type="file" id="file" style="display:none">
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="ui right labeled left icon input">
+                        <div class="column inputNameFile">
+                            <div class="ui right labeled left icon input inputNameFile">
                                 <i class="terminal icon"></i>
                                 <input id="renameFile" type="text" placeholder="Renommer">
                                 <a class="ui tag label">
@@ -37,7 +60,7 @@
             </div>
         </div>
         <div class="actions">
-            <button class="ui black left button">Annuler</button>
+            <button id="dismissModal" class="ui black left button">Annuler</button>
             <div class="ui blue right labeled icon button">
                 Ajouter au projet
                 <i class="plus icon"></i>
@@ -54,6 +77,11 @@
         $("#file").change(function() {
             $("#renameFile").val($("#file").val().split('\\').pop() + "");
         });
+    });
+
+
+    $("#dismissModal").click(function () {
+        $('.ModalSelectFile').modal('hide');
     });
 
 

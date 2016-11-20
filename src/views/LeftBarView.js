@@ -19,10 +19,14 @@ require('../../sass/LeftBar.scss');
 
 class LeftBarView extends Backbone.View {
 
+    //static var menuCollection = null;
+
     get template() {
 
         return _.template(Loader.templates.LeftBar);
     }
+
+
 
     get events() {
         return {
@@ -37,6 +41,9 @@ class LeftBarView extends Backbone.View {
     }
 
     addMenu(){
+
+        console.log(this.menuCollection);
+
         var modalMenu = new ModalSelectMenu();
         modalMenu.render();
     }
@@ -50,16 +57,12 @@ class LeftBarView extends Backbone.View {
 
         var container = new ContainerObject();
         container.render();
-
-
-        //Backbone.View.WebkitTransition.fadeIn();
-        //$('.ModalSelectFile');//.modal('show'); //.show() .animateCssOut('fadeOutLeft', modal);
     }
 
     addFile(){
+
        var modal = new ModalSelectFile();
-        modal.render();
-        // /$('.ModalSelectFile').modal('show')//.show() .animateCssOut('fadeOutLeft', modal);
+       modal.render();
     }
 
     constructor() {
@@ -77,12 +80,13 @@ class LeftBarView extends Backbone.View {
         itemsMenu.push(new ItemLeftMenu({id: 3, name: 'Settings', logo: 'puzzle icon', isUsed:true}));
         itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Ajouter', logo: 'plus square outline icon', isUsed:true}));
 
-        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Ajouter', logo: 'plus square outline icon', isUsed:false}));
-        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Ajouter', logo: 'plus square outline icon', isUsed:false}));
-        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Ajouter', logo: 'plus square outline icon', isUsed:false}));
+        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Environnement', logo: 'plus square outline icon', isUsed:false}));
+        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Textures', logo: 'plus square outline icon', isUsed:false}));
+        itemsMenu.push(new ItemLeftMenu({id: 4, name: 'Scripts', logo: 'plus square outline icon', isUsed:false}));
 
 
         this.menu = new LeftMenuCollection(itemsMenu);
+        this.menuCollection = this.menu;
 
         this.menu.bind('add', this.render);
 
@@ -101,7 +105,8 @@ class LeftBarView extends Backbone.View {
         return this;
     }
 
-    /*render() {
+    /*
+    render() {
         this.$el.html(this.template());
         return this;
     }*/
