@@ -22,10 +22,32 @@ $activeTabBackgroundColor:#1BB2BD;
 
   }
 
+  .ui.items {
+  }
+
   .ui.items > .item > .content > .header:not(.ui) {
 
     font-size: small;
-    color: teal;
+    //color: teal;
+    color: white;
+  }
+
+
+  .ui.tabular.menu .item {
+    color: white;
+    width: 50%;
+    background-color: $greyTopBarBackgroundColor;
+  }
+
+
+
+  .ui.tabular.menu .active.item {
+    background-color:  teal;
+  }
+
+  .ui.segment {
+    border: none;
+    background-color: $greyTopBarBackgroundColor;
   }
   .container{
 
@@ -38,8 +60,12 @@ $activeTabBackgroundColor:#1BB2BD;
       &.tabular{
 
         &.menu{
+          &.item {
 
-          width: 100%;
+            width: 50%;
+            background-color: yellow;
+          }
+
         }
       }
     }

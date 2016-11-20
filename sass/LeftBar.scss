@@ -5,6 +5,7 @@
 }
 
 $sizeTopMenu: 15%;
+$greyTopBarBackgroundColor:#3F3F3F;
 
 $backgroundColorSideBar: #1B1C1D;
 
@@ -44,7 +45,7 @@ $backgroundColorSideBar: #1B1C1D;
 
         &.menu {
 
-          background: $backgroundColorSideBar;
+          background: $greyTopBarBackgroundColor;
 
           &.a {
 

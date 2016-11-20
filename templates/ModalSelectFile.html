@@ -4,31 +4,45 @@
             Importer un fichier
         </div>
         <div class="image content">
-            <div class="ui medium image">
-            </div>
+            <!--<div class="ui medium image">
+            </div>-->
+
+
             <div class="description">
                 <div class="ui header">Selectionner un fichier à ajouter au projet.</div>
 
-                <div>
-                    <label for="file" class="ui icon button">
-                        <i class="file icon"></i>
-                        Open File</label>
-                    <input type="file" id="file" style="display:none">
+                <div class="ui equal width grid">
+                    <div class="equal width row">
+                        <div class="column">
+                            <div>
+                                <label id="openFile" for="file" class="ui icon button">
+                                    <i class="file icon"></i>
+                                    Open File</label>
+                                <input type="file" id="file" style="display:none">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui right labeled left icon input">
+                                <i class="terminal icon"></i>
+                                <input id="renameFile" type="text" placeholder="Renommer">
+                                <a class="ui tag label">
+                                    Renommer
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="ui right labeled left icon input">
-                    <i class="terminal icon"></i>
-                    <input id="renameFile" type="text" placeholder="Renommer">
-                    <a class="ui tag label">
-                        Renommer
-                    </a>
-                </div>
+
             </div>
         </div>
         <div class="actions">
+            <button class="ui black left button">Annuler</button>
             <div class="ui blue right labeled icon button">
                 Ajouter au projet
                 <i class="plus icon"></i>
             </div>
+
         </div>
     </div>
 </div>
