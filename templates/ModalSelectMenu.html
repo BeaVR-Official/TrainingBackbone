@@ -1,5 +1,5 @@
 <div class="ui modals">
-    <div class="ui modal transition visible active">
+    <div class="ui basic modal transition visible active">
         <div class="header">
             Ajouter un menu
         </div>
@@ -24,21 +24,135 @@
                     </div>
                 </div>
             </div>
+            <div class="item">
+                <div class="image">
+                    <img src="http://www.wallfizz.com/espace/planete/2124-planete-percutee-par-une-asteroide-WallFizz.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">12 Years a Slave</a>
+                    <div class="meta">
+                        <span class="cinema">Union Square 14</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <div class="ui label"><i class="globe icon"></i>Environnement</div>
+                        <div class="ui right floated teal button">
+                            Ajouter
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="image">
+                    <img src="http://www.wallfizz.com/espace/planete/2124-planete-percutee-par-une-asteroide-WallFizz.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">12 Years a Slave</a>
+                    <div class="meta">
+                        <span class="cinema">Union Square 14</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <div class="ui label"><i class="globe icon"></i>Environnement</div>
+                        <div class="ui right floated teal button">
+                            Ajouter
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="image">
+                    <img src="http://www.wallfizz.com/espace/planete/2124-planete-percutee-par-une-asteroide-WallFizz.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">12 Years a Slave</a>
+                    <div class="meta">
+                        <span class="cinema">Union Square 14</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <div class="ui label"><i class="globe icon"></i>Environnement</div>
+                        <div class="ui right floated teal button">
+                            Ajouter
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="image">
+                    <img src="http://www.wallfizz.com/espace/planete/2124-planete-percutee-par-une-asteroide-WallFizz.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">12 Years a Slave</a>
+                    <div class="meta">
+                        <span class="cinema">Union Square 14</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <div class="ui label"><i class="globe icon"></i>Environnement</div>
+                        <div class="ui right floated teal button">
+                            Ajouter
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="image">
+                    <img src="http://www.wallfizz.com/espace/planete/2124-planete-percutee-par-une-asteroide-WallFizz.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">12 Years a Slave</a>
+                    <div class="meta">
+                        <span class="cinema">Union Square 14</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <div class="ui label"><i class="globe icon"></i>Environnement</div>
+                        <div class="ui right floated teal button">
+                            Ajouter
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="actions">
-            <button class="ui black button">Annuler</button>
-            <!--<div id="dismissModal" class="ui black right button">
-                Annuler
-                <i class="plus icon"></i>
-            </div>-->
+            <button id="dismissModal" class="ui black button">Annuler</button>
         </div>
     </div>
 </div>
 
 <script>
 
-    /*$('#dismissModal').click(function () {
+    $("#dismissModal").click(function () {
+        $('.ModalSelectMenu').modal('hide');
+    });
 
-        $('.ModalSelectMenu').modal('toggle');
-    });*/
+    $('.ModalSelectMenu').modal({
+        onHide: function(){
+            console.log('hidden');
+
+        },
+        onShow: function(){
+            console.log('shown');
+        },
+        onApprove: function() {
+            console.log('Approve');
+            return validateModal()
+        }
+    }).modal('show');
+
 </script>
