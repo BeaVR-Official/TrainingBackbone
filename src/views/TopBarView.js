@@ -1,7 +1,6 @@
 import Loader from '../utils';
 import * as Backbone from 'backbone';
 import * as _ from '../../node_modules/underscore';
-import $ from 'jquery';
 
 require('../../sass/TopBar.scss');
 
@@ -17,9 +16,11 @@ class ObjectMenuView extends Backbone.View {
 
     get events() {
         return {
-            'click .close-cross': 'test',
-            'click .add-tab': 'test',
-            'click .project-tab': 'test'
+            'dblclick #scene-tabs .tab' : 'allowRenameTab',
+            'click .edit' : 'renameTab',
+            'click .close-cross': 'closeTab',
+            'click .add-tab': 'addTab',
+            'click .project-tab': 'showProjectInformations'
         };
     }
 
@@ -28,15 +29,77 @@ class ObjectMenuView extends Backbone.View {
         this.render();
     }
 
-    initialize() {}
+    initialize() {
+        this.tabArray = [];
+    }
 
     render() {
         this.$el.html(this.template());
         return this;
     }
 
-    test() {
-        console.log("ok");
+    // To delete when not useful anymore
+    generateTabId() {
+        return Math.floor((Math.random() * 100000) + 1);
+    }
+
+    addTab() {
+        // Prendre en param les choses requises.
+        var newTabId = this.generateTabId();
+
+        // TEMP
+        var newTabName = newTabId;
+
+        var tabsDiv = $('#scene-tabs');
+        tabsDiv[0].innerHTML = tabsDiv[0].innerHTML
+            + '<a class=\"item tab\" data-tab=\"tab-'
+            + newTabId
+            +'\">'
+            + '<div class=\"ui disabled transparent input\">'
+            + '<input type=\"text\" class=\"tab-input\" value=\"' + newTabName + '\">'
+            + '<i class=\"hidden edit icon\"></i>'
+            + '</div>'
+            + '<span class=\"close-cross\">x</span></a>';
+
+        var contentDiv = $('#content');
+        contentDiv[0].innerHTML = contentDiv[0].innerHTML
+            + '<div class=\"ui bottom attached tab segment\" data-tab=\"tab-'
+            + newTabId
+            +'\">Contenu de l\'onglet ' + newTabId
+            + '</div>';
+
+        $('.menu .item').tab();
+    }
+
+    closeTab(ev) {
+        ev.target.parentElement.remove();
+        $('.menu .item').tab();
+    }
+
+    showProjectInformations() {
+        console.log("TODO Later.");
+    }
+
+    allowRenameTab(ev) {
+        if (ev.target.classList.contains("disabled")) {
+            ev.target.classList.remove("disabled");
+            ev.target.children[1].classList.remove("hidden");
+        }
+    }
+
+    renameTab(ev) {
+        ev.target.classList.add("hidden");
+        ev.target.parentElement.classList.add("disabled");
+
+        var input = ev.target.parentElement.children[0];
+
+        var newName = input.value;
+
+        input.defaultValue = newName;
+        input.style.width = ((input.value.length + 1) * 8) + "px";
+
+        console.log(newName);
+
     }
 }
 

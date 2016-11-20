@@ -5,30 +5,31 @@
             <img src="assets/2017_logo_beavr.png">
         </div>
         <div id="tab-bar" class="fifteen wide column">
-            <div class="ui top attached tabular menu scene-tabs">
+            <div id="tab-bar-inner" class="ui top attached tabular menu all-tabs">
                 <a class="item project-tab">
                     <div class="inside">
                         <img src="assets/default-user.png">
                         <span>Project Name</span>
                     </div>
                 </a>
-                <a class="item tab" data-tab="first">First<span class="close-cross">x</span></a>
-                <a class="item tab" data-tab="second">Second<span class="close-cross">x</span></a>
-                <a class="item tab z active" data-tab="third">Third<span class="close-cross">x</span></a>
+                <div id="scene-tabs">
+                    <!--<a class="item tab" data-tab="first">
+                        <div class="ui disabled transparent input">
+                            <input class="tab-input" type="text" value="First">
+                            <i class="hidden edit icon"></i>
+                        </div>
+                        <span class="close-cross">x</span>
+                    </a>-->
+                </div>
                 <a class="item add-tab"><span>+</span></a>
             </div>
         </div>
     </div>
-    <div class="ui bottom attached tab segment" data-tab="first">
-        First
+    <div id="content">
+        <!--<div class="ui bottom attached tab segment" data-tab="first">
+            First
+        </div>-->
     </div>
-    <div class="ui bottom attached tab segment" data-tab="second">
-        Second
-    </div>
-    <div class="ui bottom attached tab segment active" data-tab="third">
-        Third
-    </div>
-
     <script>
         $('.menu .item').tab();
     </script>

@@ -14,7 +14,7 @@ $tabHeight:30px;
   border:0 !important;
 }
 
-.scene-tabs .tab {
+.all-tabs .tab {
   margin-top:20px;
   margin-left:1px;
   margin-right:1px;
@@ -60,19 +60,30 @@ $tabHeight:30px;
   padding: 0px 5px;
 }
 
-.scene-tabs .active {
+.all-tabs .active {
   background-color:$activeTabBackgroundColor !important;
 }
 
 .close-cross {
-  margin-left:15px;
+  margin-left:8px;
   margin-bottom:15px;
   font-size:16px;
   color:$greyTopBarBackgroundColor;
 }
 
-.close-cross:hover {
+.edit {
+  padding-top:3px;
+  padding-left:3px;
+  color:$greyTopBarBackgroundColor;
+}
+
+.close-cross:hover,
+.edit:hover {
   color:black;
+}
+
+.hidden {
+  display:none !important;
 }
 
 #logo {
@@ -121,4 +132,24 @@ $tabHeight:30px;
 .inside span {
   display: block;
   font-size:16px;
+}
+
+#scene-tabs .item {
+  float:left;
+}
+
+#content .tab {
+  border:0 !important;
+  margin:0 !important;
+}
+
+.ui.disabled.input, .ui.input input[disabled] {
+  opacity:1 !important;
+}
+
+.tab-input {
+  max-width:100px !important;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow:hidden;
 }
