@@ -9,7 +9,45 @@ $greyTopBarBackgroundColor:#3F3F3F;
 $inactiveTabBackgroundColor:#24777A;
 $activeTabBackgroundColor:#1BB2BD;
 
-.test {
+
+.ContainerObjectSelector {
+
+  position:absolute;
+  top: $sizeTopMenu;
+  left: $sizeSideBar;
+  width: 250px;
+  //height: 100%;
+
+  .ui.items :hover {
+
+  }
+
+  .ui.items > .item > .content > .header:not(.ui) {
+
+    font-size: small;
+    color: teal;
+  }
+  .container{
+
+  }
+
+  .ui {
+
+    &.attached {
+
+      &.tabular{
+
+        &.menu{
+
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}
+
+/*.test {
   //position: fixed;
   position: absolute;
   top: $sizeTopMenu;
@@ -56,5 +94,4 @@ $activeTabBackgroundColor:#1BB2BD;
     color: white;
     background-color: $inactiveTabBackgroundColor;
   }
-}
-
+}*/

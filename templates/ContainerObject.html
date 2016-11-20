@@ -1,5 +1,5 @@
 
-<div class="test">
+<div class="container">
     <div class="ui top attached tabular menu">
         <a class="item" data-tab="first">Tous</a>
         <a class="item" data-tab="second">Utilisés</a>
@@ -10,7 +10,7 @@
             <% _.each(object, function(objet, i){
             %>
             <div class="item">
-                <div class="ui tiny image">
+                <div class="ui mini image">
                     <img src="http://www.freeiconspng.com/uploads/file-light-bulb-yellow-icon-svg-2.png">
                 </div>
                 <div class="small aligned content">
@@ -22,11 +22,12 @@
                     </div>
                     <div class="extra">
                         <% if(objet.isMadeByUser == true){ %>
-                        <div class="ui label">User</div>
-                        <% } %>
-                        <button id="<%- objet.id %>" class="ui red right floated icon button removeButton">
+                        <i class="user icon"></i>
+                        <button id="<%- objet.id %>" class="ui red mini right floated icon button removeButton">
                             <i class="remove icon"></i>
                         </button>
+                        <% } %>
+
                     </div>
                 </div>
             </div>
