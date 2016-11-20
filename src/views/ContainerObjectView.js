@@ -60,15 +60,15 @@ class ContainerObjectView extends Backbone.View {
         var i = 0;
 
 
-        objectByCategorie.push(new Item({id: 1, name: 'Three View 1', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-        objectByCategorie.push(new Item({id: 2, name: 'Three View 2', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-        objectByCategorie.push(new Item({id: 3, name: 'Three View 3', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-        objectByCategorie.push(new Item({id: 4, name: 'Three View 4', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 1, name: 'Three View 1', logo: 'lightning icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
+        objectByCategorie.push(new Item({id: 2, name: 'Three View 2', logo: 'legal icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
+        objectByCategorie.push(new Item({id: 3, name: 'Three View 3', logo: 'magnet icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
+        objectByCategorie.push(new Item({id: 4, name: 'Three View 4', logo: 'sun icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
 
-        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
-        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
-        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
-        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'rocket icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'keyboard icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'hotel icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'paw icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
 
 
 

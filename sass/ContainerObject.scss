@@ -17,6 +17,10 @@ $activeTabBackgroundColor:#1BB2BD;
   left: $sizeSideBar;
   width: 180px;
 
+  .ui.grid {
+
+    margin-bottom: 14px;
+  }
   .ui.segment {
     border: none;
     background-color: $greyTopBarBackgroundColor;
@@ -37,6 +41,13 @@ $activeTabBackgroundColor:#1BB2BD;
     width: 100%;
     border-radius: 0px;
   }
+
+  .ui.white.basic.huge.button {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+  }
+
   .a .active.item {
     background-color: $activeTabBackgroundColor;
   }
