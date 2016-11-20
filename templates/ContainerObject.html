@@ -1,57 +1,49 @@
-<div class="ui items">
-    <% _.each(object, function(objet, i){
 
-    %>
-    <div class="item">
-        <div class="ui tiny image">
-            <img src="http://www.freeiconspng.com/uploads/file-light-bulb-yellow-icon-svg-2.png">
-        </div>
-        <div class="small aligned content">
-            <div class="header">
-                Titre
-            </div>
-            <div class="description">
-                <p></p>
-            </div>
-            <div class="extra">
-                <% if(objet.isMadeByUser == true){ %>
-                    <div class="ui label">User</div>
-                <% } %>
-                <button class="ui red right floated icon button">
-                    <i class="remove icon"></i>
-                </button>
-            </div>
-        </div>
+<div class="test">
+    <div class="ui top attached tabular menu">
+        <a class="item" data-tab="first">Tous</a>
+        <a class="item" data-tab="second">Utilisés</a>
     </div>
-    <% }); %>
-</div>
+    <div class="ui bottom attached tab segment active" data-tab="first">
 
-<div class="ui bottom attached button" tabindex="0">Ajouter un objet</div>
-
-<!--<div class="containerObject">
-    <% _.each(object, function(objet, i){
-
-    %>
-
-    <div class="row">
-        <div class="column">
-            <% if(objet.isMadeByUser == true){ %>
-                <button class="ui red button"><%- objet.name %></button>
-            <% } else { %>
-                <button class="ui green button"><%- objet.name %></button>
-            <% } %>
+        <div class="ui items">
+            <% _.each(object, function(objet, i){
+            %>
+            <div class="item">
+                <div class="ui tiny image">
+                    <img src="http://www.freeiconspng.com/uploads/file-light-bulb-yellow-icon-svg-2.png">
+                </div>
+                <div class="small aligned content">
+                    <div class="header">
+                        <%- objet.name %>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <% if(objet.isMadeByUser == true){ %>
+                        <div class="ui label">User</div>
+                        <% } %>
+                        <button id="<%- objet.id %>" class="ui red right floated icon button removeButton">
+                            <i class="remove icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
         </div>
+
+        <div class="ui bottom attached button" tabindex="0">Ajouter un objet</div>
+
     </div>
-    <% }); %>
-    <div class="row">
-        <button class="ui blue button">Importer votre objet</button>
+    <div class="ui bottom attached tab segment" data-tab="second">
+        Second
     </div>
 </div>
 
 
-<div class="ui bottom attached tab segment" data-tab="first">
-    First page
-</div>
-<div class="ui bottom attached tab segment" data-tab="second">
-    Second second page
-</div>-->
+<script>
+
+    $('.menu .item').tab();
+
+</script>

@@ -12,7 +12,7 @@ require('../sass/main.scss');
 
 class Application {
     constructor() {
-        Loader.loadTemplates([ 'LeftBar', 'ContainerObject', 'ModalSelectFile'],
+        Loader.loadTemplates([ 'LeftBar', 'ContainerObject', 'ModalSelectFile', 'ModalSelectMenu'],
             function() {
                 new Router();
                 Backbone.history.start();

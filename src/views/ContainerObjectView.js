@@ -22,9 +22,29 @@ class ContainerObjectView extends Backbone.View {
 
     get events() {
         return {
+            'click .removeButton' : 'removeObjet',
         };
     }
 
+    removeObjet(e){
+
+        //get l'id de l'objet à remove
+        console.log(e.currentTarget.id);
+
+        //console.log("this =>");
+        console.log(this);
+
+        this.object.remove(this.object.at(e.currentTarget.id - 1));
+
+        console.log("Size collection ");
+        console.log(this.object);
+
+        this.$el.html(this.template({
+            object: this.object.toJSON()
+        }));
+        return this;
+
+    }
     get $el() {
         return $('.ContainerObjectSelector');
     }
@@ -37,24 +57,24 @@ class ContainerObjectView extends Backbone.View {
         });
 
         let objectByCategorie = [];
-        var i = 1;
+        var i = 0;
 
-         while (i < 10){
-             objectByCategorie.push(new Item({id: 1, name: 'Three View', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 2', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 3', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 4', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
 
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 6', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 7', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 8', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
-             objectByCategorie.push(new Item({id: 1, name: 'Three View 9', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
-             i++;
-         }
+        objectByCategorie.push(new Item({id: 1, name: 'Three View 1', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
+        objectByCategorie.push(new Item({id: 2, name: 'Three View 2', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
+        objectByCategorie.push(new Item({id: 3, name: 'Three View 3', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:''}));
+        objectByCategorie.push(new Item({id: 4, name: 'Three View 4', logo: 'list icon', category: '', modelPath: '', isUsed:true, isMadeByUser:true}));
+
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+        objectByCategorie.push(new Item({id: 5, name: 'Three View 5', logo: 'list icon', category: '', modelPath: '', isUsed:false, isMadeByUser:true}));
+
+
 
         this.object = new ItemMenuCollection(objectByCategorie);
 
+        //this.object.bind('change add remove reset', this.render);
         this.render();
     }
 
