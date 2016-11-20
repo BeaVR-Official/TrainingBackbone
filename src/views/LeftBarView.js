@@ -33,16 +33,16 @@ class LeftBarView extends Backbone.View {
         return $('.LeftBarSelector');
     }
 
-    openContainerTreeView(){
-
-        var containerTreeView = new ContainerTreeView();
-        containerTreeView.render();
-    }
-
     openContainerObject() {
+
+
+        //this.menu.push(new ItemLeftMenu({id: 5, name: 'Test', logo: 'list icon', isUsed:true}));
+
+        //console.log(this.menu);
 
         var container = new ContainerObject();
         container.render();
+
 
         //Backbone.View.WebkitTransition.fadeIn();
         //$('.ModalSelectFile');//.modal('show'); //.show() .animateCssOut('fadeOutLeft', modal);
@@ -62,7 +62,7 @@ class LeftBarView extends Backbone.View {
 
         Loader.initStyles();
 
-        let itemsMenu = [];
+        var itemsMenu = [];
 
         itemsMenu.push(new ItemLeftMenu({id: 1, name: 'Three View', logo: 'list icon', isUsed:true}));
         itemsMenu.push(new ItemLeftMenu({id: 2, name: 'Topics', logo: 'cubes icon', isUsed:true}));
@@ -71,11 +71,17 @@ class LeftBarView extends Backbone.View {
 
         this.menu = new LeftMenuCollection(itemsMenu);
 
+        this.menu.bind('add', this.render);
+
 
         this.render();
     }
 
     render() {
+
+        console.log("RENDER :>");
+        console.log(this.menu);
+
         this.$el.html(this.template({
             menu: this.menu.toJSON()
         }));

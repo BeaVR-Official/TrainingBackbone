@@ -1,7 +1,36 @@
-<div class="containerObject">
+<div class="ui items">
     <% _.each(object, function(objet, i){
 
-    console.log(objet);
+    %>
+    <div class="item">
+        <div class="ui tiny image">
+            <img src="http://www.freeiconspng.com/uploads/file-light-bulb-yellow-icon-svg-2.png">
+        </div>
+        <div class="small aligned content">
+            <div class="header">
+                Titre
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+            <div class="extra">
+                <% if(objet.isMadeByUser == true){ %>
+                    <div class="ui label">User</div>
+                <% } %>
+                <button class="ui red right floated icon button">
+                    <i class="remove icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</div>
+
+<div class="ui bottom attached button" tabindex="0">Ajouter un objet</div>
+
+<!--<div class="containerObject">
+    <% _.each(object, function(objet, i){
+
     %>
 
     <div class="row">
@@ -25,4 +54,4 @@
 </div>
 <div class="ui bottom attached tab segment" data-tab="second">
     Second second page
-</div>
+</div>-->

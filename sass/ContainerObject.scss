@@ -4,14 +4,51 @@ $sizeSideBar: 102.23px;
 
 $backgroundColorSideBar: #1B1C1D;
 
+
+$greyTopBarBackgroundColor:#3F3F3F;
+$inactiveTabBackgroundColor:#24777A;
+$activeTabBackgroundColor:#1BB2BD;
+
 .ContainerObjectSelector {
+
+  .ui.items > .item > .content > .header {
+    color: white;
+  }
+
+  /*.ui.items > .item:first-child {
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 0px;
+    padding-right: 20px;
+  }*/
+
+  .ui.items {
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 0px;
+    padding-right: 20px;
+  }
+
+  .ui.items > .item {
+    padding-top: 10px;
+    border-radius: 2px;
+    //background-color: $inactiveTabBackgroundColor;
+  }
+  .ui.attached.bottom.button {
+    color: white;
+    background-color: $inactiveTabBackgroundColor;
+  }
+
+
 
 .containerObject {
 
   //position:absolute;
   //top:$sizeTopMenu;
   //left:$sizeSideBar;
-  width: 100px;
+  width: 250px;
   height: 100%;
 
   overflow-style: auto;
@@ -26,7 +63,7 @@ $backgroundColorSideBar: #1B1C1D;
   position: fixed;
   top: $sizeTopMenu;
   left: $sizeSideBar;
-  width:150px;
+  width:300px;
   height:100%;
   background: $backgroundColorSideBar;
 
