@@ -91,7 +91,6 @@ class ObjectMenuView extends Backbone.View {
         var index = this.tabArray.indexOf(ev.target.parentElement.children[0].children[0].value);
         if (index > -1) {
             this.tabArray.splice(index, 1);
-            console.log("on remove " + index);
         }
         ev.target.parentElement.remove();
 
