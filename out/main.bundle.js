@@ -24174,7 +24174,16 @@
 	    }, {
 	        key: 'closeTab',
 	        value: function closeTab(ev) {
+	
+	            var nodeList = Array.prototype.slice.call($('#scene-tabs')[0].children);
+	            var i = nodeList.indexOf(ev.target.parentElement);
+	
 	            ev.target.parentElement.remove();
+	
+	            if (nodeList.length <= 1) $('.project-tab').click();else {
+	                if (i + 1 == nodeList.length) $('#scene-tabs')[0].children[i - 1].click();else $('#scene-tabs')[0].children[i].click();
+	            }
+	
 	            $('.menu .item').tab();
 	        }
 	    }, {
