@@ -9,19 +9,34 @@ import ResetPasswordModalView from './views/ResetPasswordModalView'
 import ProjectSelectionModalView from './views/ProjectSelectionModalView'
 import ProjectCreationModalView from './views/ProjectCreationModalView'
 import * as Backbone from 'backbone';
+import SettingsBox from './views/SettingsBox';
+import NextPrevBox from './views/NextPrevBox';
+import ToolsBox from './views/ToolsBox';
 
 class Router extends Backbone.Router {
 
     constructor() {
         super({
             routes: {
-                '': 'HelloWorld'
+                '': 'StartMenu'
             }
         });
     }
 
-    HelloWorld() {
+    StartMenu() {
+        this.home();
+        var authModal = new AuthModalView();
+        authModal.openModal();
+    }
+
+/*    HelloWorld() {
         new HelloWorldView();
+    }*/
+
+    home() {
+        new SettingsBox();
+        new NextPrevBox();
+        new ToolsBox();
     }
 
     AuthModal() {
