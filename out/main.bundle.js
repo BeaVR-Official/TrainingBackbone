@@ -24155,13 +24155,23 @@
 	            return Math.floor(Math.random() * 100000 + 1);
 	        }
 	    }, {
+	        key: 'getNewTabName',
+	        value: function getNewTabName() {
+	
+	            for (var i = 1; i < this.tabArray.length + 1; i++) {
+	                if (this.tabArray.indexOf("Scene - " + i) == -1) return "Scene - " + i;
+	            }
+	
+	            return "Scene - " + i;
+	        }
+	    }, {
 	        key: 'addTab',
 	        value: function addTab() {
-	            // Prendre en param les choses requises.
-	            var newTabId = this.generateTabId();
 	
-	            // TEMP
-	            var newTabName = newTabId;
+	            var newTabId = this.generateTabId();
+	            var newTabName = this.getNewTabName();
+	
+	            this.tabArray.push(newTabName);
 	
 	            var tabsDiv = $('#scene-tabs');
 	            tabsDiv[0].innerHTML = tabsDiv[0].innerHTML + '<a class=\"item tab\" data-tab=\"tab-' + newTabId + '\">' + '<div class=\"ui disabled transparent input\">' + '<input type=\"text\" class=\"tab-input\" value=\"' + newTabName + '\">' + '<i class=\"hidden edit icon\"></i>' + '</div>' + '<span class=\"close-cross\">x</span></a>';
@@ -24170,6 +24180,8 @@
 	            contentDiv[0].innerHTML = contentDiv[0].innerHTML + '<div class=\"ui bottom attached tab segment\" data-tab=\"tab-' + newTabId + '\">Contenu de l\'onglet ' + newTabId + '</div>';
 	
 	            $('.menu .item').tab();
+	
+	            tabsDiv[0].children[this.tabArray.length - 1].click();
 	        }
 	    }, {
 	        key: 'closeTab',
@@ -24178,6 +24190,11 @@
 	            var nodeList = Array.prototype.slice.call($('#scene-tabs')[0].children);
 	            var i = nodeList.indexOf(ev.target.parentElement);
 	
+	            var index = this.tabArray.indexOf(ev.target.parentElement.children[0].children[0].value);
+	            if (index > -1) {
+	                this.tabArray.splice(index, 1);
+	                console.log("on remove " + index);
+	            }
 	            ev.target.parentElement.remove();
 	
 	            if (nodeList.length <= 1) $('.project-tab').click();else {
@@ -24206,13 +24223,13 @@
 	            ev.target.parentElement.classList.add("disabled");
 	
 	            var input = ev.target.parentElement.children[0];
-	
 	            var newName = input.value;
+	
+	            var index = this.tabArray.indexOf(input.defaultValue);
+	            if (index > -1) this.tabArray[index] = newName;
 	
 	            input.defaultValue = newName;
 	            input.style.width = (input.value.length + 1) * 8 + "px";
-	
-	            console.log(newName);
 	        }
 	    }]);
 	    return ObjectMenuView;
@@ -24255,7 +24272,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".TopBar {\n  background-color: #3F3F3F; }\n\n#tab-bar {\n  padding-left: 0px;\n  padding-top: 0px;\n  padding-bottom: 0px;\n  border: 0 !important; }\n\n.all-tabs .tab {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding-right: 5px !important; }\n\n.ui.tabular.menu .active.item {\n  border-radius: 7px 7px 0 0 !important; }\n\n.ui.grid {\n  margin: 0 !important;\n  border-bottom: 1px solid #D4D4D5; }\n\n.ui.tabular.menu {\n  border: 0px !important; }\n\n.ui.attached.segment {\n  border-top: 0px !important; }\n\n.add-tab {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding: 0 5px !important; }\n\n.add-tab:active {\n  background-color: #1BB2BD !important; }\n\n.add-tab span {\n  font-size: 24px;\n  padding: 0px 5px; }\n\n.all-tabs .active {\n  background-color: #1BB2BD !important; }\n\n.close-cross {\n  margin-left: 8px;\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #3F3F3F; }\n\n.edit {\n  padding-top: 3px;\n  padding-left: 3px;\n  color: #3F3F3F; }\n\n.close-cross:hover,\n.edit:hover {\n  color: black; }\n\n.hidden {\n  display: none !important; }\n\n#logo {\n  text-align: center;\n  padding-left: 0px;\n  padding-top: 0px;\n  padding-bottom: 0px; }\n\n#logo img {\n  height: 30px;\n  vertical-align: middle; }\n\n.helper {\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle; }\n\n.project-tab {\n  margin-left: 1px;\n  margin-right: 1px;\n  background-color: #24777A !important;\n  padding-right: 20px !important;\n  padding-top: 0px !important;\n  padding-bottom: 0px !important;\n  height: initial !important;\n  margin-top: 0px !important;\n  border-radius: 0px !important; }\n\n.project-tab:active {\n  background-color: #1BB2BD !important; }\n\n.inside {\n  text-align: center; }\n\n.inside img {\n  height: 25px;\n  width: 25px; }\n\n.inside span {\n  display: block;\n  font-size: 16px; }\n\n#scene-tabs .item {\n  float: left; }\n\n#content .tab {\n  border: 0 !important;\n  margin: 0 !important; }\n\n.ui.disabled.input, .ui.input input[disabled] {\n  opacity: 1 !important; }\n\n.tab-input {\n  max-width: 100px !important;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden; }\n", ""]);
+	exports.push([module.id, ".TopBar {\n  background-color: #3F3F3F; }\n\n#tab-bar {\n  padding-left: 0px;\n  padding-top: 0px;\n  padding-bottom: 0px;\n  border: 0 !important; }\n\n.all-tabs .tab {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding-right: 5px !important; }\n\n.ui.tabular.menu .active.item {\n  border-radius: 7px 7px 0 0 !important; }\n\n.ui.grid {\n  margin: 0 !important;\n  border-bottom: 1px solid #D4D4D5; }\n\n.ui.tabular.menu {\n  border: 0px !important; }\n\n.ui.attached.segment {\n  border-top: 0px !important; }\n\n.add-tab {\n  margin-top: 20px;\n  margin-left: 1px;\n  margin-right: 1px;\n  height: 30px;\n  background-color: #24777A !important;\n  border-radius: 7px 7px 0 0 !important;\n  padding: 0 5px !important; }\n\n.add-tab:active {\n  background-color: #1BB2BD !important; }\n\n.add-tab span {\n  font-size: 24px;\n  padding: 0px 5px; }\n\n.all-tabs .active {\n  background-color: #1BB2BD !important; }\n\n.close-cross {\n  margin-left: 8px;\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #3F3F3F; }\n\n.edit {\n  padding-top: 3px;\n  padding-left: 3px;\n  color: #3F3F3F; }\n\n.close-cross:hover,\n.edit:hover {\n  color: black; }\n\n.hidden {\n  display: none !important; }\n\n#logo {\n  text-align: center;\n  padding-left: 0px;\n  padding-top: 0px;\n  padding-bottom: 0px; }\n\n#logo img {\n  height: 30px;\n  vertical-align: middle; }\n\n.helper {\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle; }\n\n.project-tab {\n  margin-left: 1px;\n  margin-right: 1px;\n  background-color: #24777A !important;\n  padding-right: 20px !important;\n  padding-top: 0px !important;\n  padding-bottom: 0px !important;\n  height: initial !important;\n  margin-top: 0px !important;\n  border-radius: 0px !important; }\n\n.project-tab:active {\n  background-color: #1BB2BD !important; }\n\n.inside {\n  text-align: center; }\n\n.inside img {\n  height: 25px;\n  width: 25px; }\n\n.inside span {\n  display: block;\n  font-size: 16px; }\n\n#scene-tabs {\n  width: auto;\n  white-space: nowrap;\n  overflow-y: hidden;\n  overflow-x: scroll; }\n\n#scene-tabs .item {\n  float: left; }\n\n#content .tab {\n  border: 0 !important;\n  margin: 0 !important; }\n\n.ui.disabled.input, .ui.input input[disabled] {\n  opacity: 1 !important; }\n\n.tab-input {\n  max-width: 100px !important;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden; }\n", ""]);
 	
 	// exports
 

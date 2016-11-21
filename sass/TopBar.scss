@@ -134,6 +134,13 @@ $tabHeight:30px;
   font-size:16px;
 }
 
+#scene-tabs {
+  width: auto;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
 #scene-tabs .item {
   float:left;
 }

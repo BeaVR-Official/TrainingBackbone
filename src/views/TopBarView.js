@@ -43,12 +43,22 @@ class ObjectMenuView extends Backbone.View {
         return Math.floor((Math.random() * 100000) + 1);
     }
 
-    addTab() {
-        // Prendre en param les choses requises.
-        var newTabId = this.generateTabId();
+    getNewTabName() {
 
-        // TEMP
-        var newTabName = newTabId;
+        for (var i = 1; i < this.tabArray.length + 1; i++) {
+            if (this.tabArray.indexOf("Scene - " + i) == -1)
+                return ("Scene - " + i);
+        }
+
+        return ("Scene - " + i);
+    }
+
+    addTab() {
+
+        var newTabId = this.generateTabId();
+        var newTabName = this.getNewTabName();
+
+        this.tabArray.push(newTabName);
 
         var tabsDiv = $('#scene-tabs');
         tabsDiv[0].innerHTML = tabsDiv[0].innerHTML
@@ -69,6 +79,8 @@ class ObjectMenuView extends Backbone.View {
             + '</div>';
 
         $('.menu .item').tab();
+
+        tabsDiv[0].children[this.tabArray.length - 1].click();
     }
 
     closeTab(ev) {
@@ -76,6 +88,11 @@ class ObjectMenuView extends Backbone.View {
         var nodeList = Array.prototype.slice.call($('#scene-tabs')[0].children);
         var i = nodeList.indexOf(ev.target.parentElement);
 
+        var index = this.tabArray.indexOf(ev.target.parentElement.children[0].children[0].value);
+        if (index > -1) {
+            this.tabArray.splice(index, 1);
+            console.log("on remove " + index);
+        }
         ev.target.parentElement.remove();
 
         if (nodeList.length <= 1)
@@ -106,14 +123,14 @@ class ObjectMenuView extends Backbone.View {
         ev.target.parentElement.classList.add("disabled");
 
         var input = ev.target.parentElement.children[0];
-
         var newName = input.value;
+
+        var index = this.tabArray.indexOf(input.defaultValue);
+        if (index > -1)
+            this.tabArray[index] = newName;
 
         input.defaultValue = newName;
         input.style.width = ((input.value.length + 1) * 8) + "px";
-
-        console.log(newName);
-
     }
 }
 
