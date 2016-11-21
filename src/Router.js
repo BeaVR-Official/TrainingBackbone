@@ -26,7 +26,7 @@ class Router extends Backbone.Router {
     StartMenu() {
         this.home();
         var authModal = new AuthModalView();
-        authModal.openModal();
+        authModal.show(false);
     }
 
 /*    HelloWorld() {

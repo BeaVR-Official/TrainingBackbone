@@ -1,9 +1,8 @@
 /**
  * Created by ekersale on 20/11/2016.
  */
-/*
+
  import $ from 'jquery';
- */
 
 class Loader {
 
