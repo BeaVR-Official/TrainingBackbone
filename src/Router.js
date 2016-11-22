@@ -12,6 +12,8 @@ import * as Backbone from 'backbone';
 import SettingsBox from './views/SettingsBox';
 import NextPrevBox from './views/NextPrevBox';
 import ToolsBox from './views/ToolsBox';
+import TopBarView from './views/TopBarView';
+
 
 class Router extends Backbone.Router {
 
@@ -25,8 +27,8 @@ class Router extends Backbone.Router {
 
     StartMenu() {
         this.home();
-        var authModal = new AuthModalView();
-        authModal.show(false);
+        /*var authModal = new AuthModalView();
+        authModal.show(false);*/
     }
 
 /*    HelloWorld() {
@@ -37,6 +39,7 @@ class Router extends Backbone.Router {
         new SettingsBox();
         new NextPrevBox();
         new ToolsBox();
+        new TopBarView();
     }
 
     AuthModal() {
