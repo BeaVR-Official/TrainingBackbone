@@ -113,7 +113,7 @@ class ObjectMenuView extends Backbone.View {
     }
 
     showProjectInformations() {
-        console.log("TODO Later.");
+        Backbone.history.navigate('/settings');
     }
 
     allowRenameTab(ev) {

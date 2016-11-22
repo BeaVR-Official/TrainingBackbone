@@ -20,7 +20,8 @@ class Router extends Backbone.Router {
     constructor() {
         super({
             routes: {
-                '': 'StartMenu'
+                '': 'StartMenu',
+                'settings': 'settings'
             }
         });
     }
@@ -34,6 +35,10 @@ class Router extends Backbone.Router {
 /*    HelloWorld() {
         new HelloWorldView();
     }*/
+
+    settings() {
+        new ProjectSelectionModalView();
+    }
 
     home() {
         new SettingsBox();
