@@ -21,7 +21,8 @@ class ObjectMenuView extends Backbone.View {
             'click .close-cross': 'closeTab',
             'click .add-tab': 'addTab',
             'click .project-tab': 'showProjectInformations',
-            'mousewheel': 'mousewheel'
+            'mousewheel': 'mousewheel',
+            'click .tab' : 'clickTab',
         };
     }
 
@@ -75,15 +76,9 @@ class ObjectMenuView extends Backbone.View {
             + '<div class=\"ui disabled transparent input\">'
             + '<input type=\"text\" class=\"tab-input\" value=\"' + newTabName + '\">'
             + '<i class=\"hidden edit icon\"></i>'
-            + '</div>'
-            + '<span class=\"close-cross\">x</span></a>';
+            + '<span class=\"close-cross\">x</span>'
+            + '</div></a>'
 
-        var contentDiv = $('#content');
-        contentDiv[0].innerHTML = contentDiv[0].innerHTML
-            + '<div class=\"ui bottom attached tab segment\" data-tab=\"tab-'
-            + newTabId
-            +'\">Contenu de l\'onglet ' + newTabId
-            + '</div>';
         $('.menu .item').tab();
 
         tabsDiv[0].children[this.tabArray.length - 1].click();
@@ -92,21 +87,24 @@ class ObjectMenuView extends Backbone.View {
     closeTab(ev) {
 
         var nodeList = Array.prototype.slice.call($('#scene-tabs')[0].children);
-        var i = nodeList.indexOf(ev.target.parentElement);
+        var i = nodeList.indexOf(ev.target.parentElement.parentElement);
 
-        var index = this.tabArray.indexOf(ev.target.parentElement.children[0].children[0].value);
+        var index = this.tabArray.indexOf(ev.target.parentElement.children[0].value);
         if (index > -1) {
             this.tabArray.splice(index, 1);
         }
-        ev.target.parentElement.remove();
+        ev.target.parentElement.parentElement.remove();
 
         if (nodeList.length <= 1)
             $('.project-tab').click();
         else {
-            if ((i + 1) == nodeList.length)
+            if ((i + 1) == nodeList.length) {
                 $('#scene-tabs')[0].children[i - 1].click();
+            }
             else
+            {
                 $('#scene-tabs')[0].children[i].click();
+            }
         }
 
         $('.menu .item').tab();
@@ -136,6 +134,34 @@ class ObjectMenuView extends Backbone.View {
 
         input.defaultValue = newName;
         input.style.width = ((input.value.length + 1) * 8) + "px";
+    }
+
+    clickTab(ev) {
+
+        if (ev.target.classList.contains("edit") || ev.target.classList.contains("tab-input")) {
+            var nodeList = Array.prototype.slice.call($('#scene-tabs')[0].children);
+
+            for (var i = 0; i < nodeList.length; i++) {
+
+                if (ev.target.parentElement.parentElement == nodeList[i])
+                    nodeList[i].classList.add("active");
+                else
+                    nodeList[i].classList.remove("active");
+            }
+        }
+        else
+            if (!ev.target.classList.contains("close-cross")) {
+                var nodeList = Array.prototype.slice.call($('#scene-tabs')[0].children);
+
+                for (var i = 0; i < nodeList.length; i++) {
+
+                    if (ev.target == nodeList[i] || ev.target == nodeList[i].firstElementChild)
+                        nodeList[i].classList.add("active");
+                    else
+                        nodeList[i].classList.remove("active");
+                }
+            }
+
     }
 }
 

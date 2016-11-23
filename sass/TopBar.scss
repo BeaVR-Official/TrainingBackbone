@@ -1,6 +1,7 @@
 $greyTopBarBackgroundColor:#3F3F3F;
-$inactiveTabBackgroundColor:#2fc5da;
-$activeTabBackgroundColor:#2f98ac;
+//$inactiveTabBackgroundColor:#2fc5da;
+$inactiveTabBackgroundColor:#2f98ac;
+$activeTabBackgroundColor:#1BB2BD;
 $tabHeight:30px;
 
 .TopBarSelector {
@@ -10,6 +11,7 @@ $tabHeight:30px;
 
   .TopBar {
     background-color:$greyTopBarBackgroundColor;
+    color:black;
   }
 
   #tab-bar-inner {
@@ -74,15 +76,14 @@ $tabHeight:30px;
   }
 
   .close-cross {
-    margin-left:8px;
+    margin-left:5px;
     margin-bottom:15px;
-    font-size:16px;
+    font-size:14px;
     color:$greyTopBarBackgroundColor;
   }
 
   .edit {
-    padding-top:3px;
-    padding-left:3px;
+    padding-top:8px;
     color:$greyTopBarBackgroundColor;
   }
 
@@ -186,7 +187,11 @@ $tabHeight:30px;
 
   .ui.menu .item>.input input {
     text-align:center;
-    color:white;
+    color:black;
+  }
+
+  .ui.menu:not(.vertical) .item>.input {
+    margin:auto !important;
   }
 
   .tab-input {
